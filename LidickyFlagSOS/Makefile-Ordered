@@ -1,0 +1,4 @@
+CFLAGS= -DG_ORDERED_VERTICES -DG_COLORED_EDGES=3 -DG_COLORED_EDGES_PARTITION  -DG_USE_FIRST_EDGE_COLOR_FOR_BLOWUP_ONLY
+SRC=../LidickyOrdered/flag.cpp
+
+-include ../LidickyOrdered/Makefile.include

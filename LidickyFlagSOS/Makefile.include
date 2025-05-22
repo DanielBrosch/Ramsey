@@ -1,0 +1,64 @@
+UNAME_S := $(shell uname -s)
+
+target := generic
+
+CC := "g++"
+
+ifeq ($(UNAME_S),Linux)
+    target := gcc
+endif
+
+ifeq ($(UNAME_S),Darwin)
+    target := gccmac
+    CC := g++
+    ifneq (, $(shell which g++-mp-10))
+      CC := g++-mp-10
+    endif
+    ifneq (, $(shell which g++-11))
+      CC := g++-11
+    endif
+    ifneq (, $(shell which g++-12))
+      CC := g++-12 -arch arm64 
+    endif
+    ifneq (, $(shell which g++-13))
+      CC := g++-13 -arch arm64 
+    endif
+    ifneq (, $(shell which g++-14))
+      CC := g++-14  -arch arm64 
+    endif
+endif
+
+all: $(target)
+
+generic:
+	g++  $(CFLAGS) $(SRC) -Wall -O3 -std=c++11
+
+debug:
+	g++  $(CFLAGS) $(SRC) -Wall -g -std=c++11 -Wc++23-extensions
+
+gcc:
+	g++ -fopenmp -D_USING_OMP_  $(CFLAGS) $(SRC)  -std=c++11 -Wall -O3 -march=native -fwhole-program 
+
+gccmac:
+	$(CC) -fopenmp -D_USING_OMP_ $(CFLAGS) $(SRC)  -std=c++11 -Wall -O2  -march=native  -fwhole-program -isysroot`xcrun --show-sdk-path`
+
+clean:
+	rm -f SDP_*  *labeled.txt *unlabeled_symmetries.txt a.out* *sdp_products.txt CSDP_checkpoint_* *log *aux  *__size*_type*.txt
+	rm -rf cache
+
+cleann:
+	rm -f SDP_*  *labeled.txt *unlabeled_symmetries.txt  *sdp_products.txt CSDP_checkpoint_* *log *aux  *__size*_type*.txt
+	rm -rf cache
+
+
+old:
+	g++ $(CFLAGS) ../flag-old.cpp -Wall -O3 -std=c++11 -o b.out
+
+
+## For different clusters
+
+condo:
+	module load intel
+	icpc -D_USING_OMP_ -std=c++11 -ipo -O3  -no-prec-div  -fp-model fast=2  -xHost -qopenmp $(CFLAGS) $(SRC)
+
+
