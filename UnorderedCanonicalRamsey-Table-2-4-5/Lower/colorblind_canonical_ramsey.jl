@@ -16,6 +16,25 @@ using Gurobi
 using JLD2
 using MosekTools
 
+dir_prefix="UnorderedCanonicalRamsey-Table-2-4-5/Lower/"
+
+
+if !isdir(dir_prefix*"LPmodels")
+    mkdir(dir_prefix*"LPmodels")
+end
+
+if !isdir(dir_prefix*"feasible_graphs")
+    mkdir(dir_prefix*"feasible_graphs")
+end
+
+if !isdir(dir_prefix*"feasible_graphs/plots")
+    mkdir(dir_prefix*"feasible_graphs/plots")∏
+end
+
+if !isdir(dir_prefix*"feasible_graphs/adjacency_matrices")
+    mkdir(dir_prefix*"feasible_graphs/adjacency_matrices")
+end
+
 
 ##
 function ord_edge(u,v)
@@ -120,9 +139,11 @@ function colorblind_canonical_ordering(GOrd, GRain, n, relaxation=false, max_col
     end
 
     m = Model(Gurobi.Optimizer)
-    # m = Model(Mosek.Optimizer)
+    set_optimizer_attribute(m, "TimeLimit", 300.0)
 
-    set_optimizer_attribute(m, "MIO_MAX_TIME", 300.0)
+    # m = Model(Mosek.Optimizer)
+    #set_optimizer_attribute(m, "MIO_MAX_TIME", 300.0)
+
     # set_optimizer_attribute(m, "TIME_LIMIT", max_time)
 
     if relaxation
@@ -742,7 +763,7 @@ function colorblind_canonical_ordering(GOrd, GRain, n, relaxation=false, max_col
     graph_name = graph_name * "_K$n"
 
     file_model = "model_" * graph_name * ".lp"
-    path_file=joinpath("code/LPmodels/", file_model)
+    path_file=joinpath(dir_prefix*"LPmodels/", file_model)
 
     open(path_file, "w") do f
         print(f, m)
@@ -764,7 +785,7 @@ function colorblind_canonical_ordering(GOrd, GRain, n, relaxation=false, max_col
         A, feasible_colors, nb_c = color_from_difference(value.(y), E, ind_edges, n)
 
         file_adj = graph_name * ".txt"
-        path_adj=joinpath("code/feasible_graphs/adjacency_matrices", graph_name*".txt")
+        path_adj=joinpath(dir_prefix*"feasible_graphs/adjacency_matrices", graph_name*".txt")
 
         open(path_adj, "w") do f
             for i=1:n
@@ -776,19 +797,19 @@ function colorblind_canonical_ordering(GOrd, GRain, n, relaxation=false, max_col
         end
 
         if save
-            if isfile("newfeasibleGraphsK24.jld2")
-                @load "newfeasibleGraphsK24.jld2" results
+            if isfile(dir_prefix*"newfeasibleGraphsK24.jld2")
+                @load dir_prefix*"newfeasibleGraphsK24.jld2" results
             else
                 results = Any[]
             end
             H1, H2 = get_graph(GOrd), get_graph(GRain)
             @show H1, H2
             push!(results, (adjacency_matrix(H1), adjacency_matrix(H2), A))
-            @save "newfeasibleGraphsK24.jld2" results
+            @save dir_prefix*"newfeasibleGraphsK24.jld2" results
         end
 
-        draw(PDF(joinpath("code/feasible_graphs/plots", graph_name*".pdf"), 16cm, 16cm), gplot(G,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
-        draw(SVG(joinpath("code/feasible_graphs/plots", graph_name*".svg"), 16cm, 16cm), gplot(G,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
+        draw(PDF(joinpath(dir_prefix*"feasible_graphs/plots", graph_name*".pdf"), 16cm, 16cm), gplot(G,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
+        draw(SVG(joinpath(dir_prefix*"feasible_graphs/plots", graph_name*".svg"), 16cm, 16cm), gplot(G,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
     
         println("\n K$n colored with no orderable $GOrd and no rainbow $GRain with $(nb_c) colors ")
         
