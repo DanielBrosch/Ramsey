@@ -12,6 +12,11 @@ using IterTools
 using Cairo, Fontconfig
 using Gurobi
 using Plots
+using JLD2
+
+
+# Otherwise this makes a lot of mess in the top level directory
+dir_prefix="OrderedRamsey-Table-6-7/Lower/"
 
 ## Permuting a graph according to a permutation
 function permute_graph(G, perm)
@@ -204,12 +209,12 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
 
     end
 
-    if !isdir("LPmodels")
-        mkdir("LPmodels")
+    if !isdir(dir_prefix*"LPmodels")
+        mkdir(dir_prefix*"LPmodels")
     end
 
-    if !isdir("ordered_graphs")
-        mkdir("ordered_graphs")
+    if !isdir(dir_prefix*"ordered_graphs")
+        mkdir(dir_prefix*"ordered_graphs")
     end
 
     perm_string= join(string.(perm))
@@ -217,8 +222,8 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
     path_name = graph_name*"_$(perm_string)_K$n"
 
     file_model = "model_" * path_name * ".lp"
-    path_file=joinpath("LPmodels/", file_model)
-    path_image=joinpath("ordered_graphs/", graph_name*"_$(perm_string)")
+    path_file=joinpath(dir_prefix*"LPmodels/", file_model)
+    path_image=joinpath(dir_prefix*"ordered_graphs/", graph_name*"_$(perm_string)")
 
     open(path_file, "w") do f
         print(f, m)
@@ -254,15 +259,15 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         end
         @show A
 
-        if !isdir("feasible_graphs")
-            mkdir("feasible_graphs")
+        if !isdir(dir_prefix*"feasible_graphs")
+            mkdir(dir_prefix*"feasible_graphs")
         end
 
-        if !isdir("feasible_graphs/adjacency_matrices")
-            mkdir("feasible_graphs/adjacency_matrices")
+        if !isdir(dir_prefix*"feasible_graphs/adjacency_matrices")
+            mkdir(dir_prefix*"feasible_graphs/adjacency_matrices")
         end
 
-        path_adj=joinpath("feasible_graphs/adjacency_matrices", path_name*".txt")
+        path_adj=joinpath(dir_prefix*"feasible_graphs/adjacency_matrices", path_name*".txt")
 
         open(path_adj, "w") do f
             for i=1:n
@@ -274,21 +279,21 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         end
 
         if save
-            if isfile("feasibleGraphsOrderedRN.jld2")
-                @load "feasibleGraphsOrderedRN.jld2" results
+            if isfile(dir_prefix*"feasibleGraphsOrderedRN.jld2")
+                @load dir_prefix*"feasibleGraphsOrderedRN.jld2" results
             else
                 results = Any[]
             end
             push!(results, (adjacency_matrix(G), A))
-            @save "feasibleGraphsOrderedRN.jld2" results
+            @save dir_prefix*"feasibleGraphsOrderedRN.jld2" results
         end
 
-        if !isdir("feasible_graphs/plots")
-            mkdir("feasible_graphs/plots")
+        if !isdir(dir_prefix*"feasible_graphs/plots")
+            mkdir(dir_prefix*"feasible_graphs/plots")
         end
 
-        draw(PDF(joinpath("feasible_graphs/plots", path_name*".pdf"), 16cm, 16cm), gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
-        draw(SVG(joinpath("feasible_graphs/plots", path_name*".svg"), 16cm, 16cm), gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
+        draw(PDF(joinpath(dir_prefix*"feasible_graphs/plots", path_name*".pdf"), 16cm, 16cm), gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
+        draw(SVG(joinpath(dir_prefix*"feasible_graphs/plots", path_name*".svg"), 16cm, 16cm), gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
     
         println("\n K$n feasibly colored!\n")
 
@@ -369,7 +374,7 @@ graphs3 = [(threeK1, "3K1"),
             (P3, "P3"),
             (K3, "K3")]
 range_n=2:6
-results_file = "allBounds_3_vertices.txt"
+results_file = dir_prefix*"allBounds_3_vertices.txt"
 bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
 
 
@@ -420,7 +425,7 @@ K4 = complete_graph(4)
 graphs3 = [(Paw4, "Paw4")]
 
 range_n=5:11
-results_file = "allBounds_4_vertices.txt"
+results_file = dir_prefix*"allBounds_4_vertices.txt"
 max_time = 60*15
 bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
 
@@ -428,7 +433,7 @@ bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
 ##
 graphsP5 = [(path_graph(5), "P5")]
 range_n =8:30
-results_file = "allBounds_P5.txt"
+results_file = dir_prefix*"allBounds_P5.txt"
 max_time = 60*30
 bounds_all_graphs_of_order_n(graphsP5, range_n, results_file, max_time)
 
@@ -439,7 +444,7 @@ K4 = complete_graph(4)
 perm = [1,2,3,4,5]
 max_time = 60*30
 n=18
-results_file = "allBounds_4_vertices.txt"
+results_file = dir_prefix*"allBounds_4_vertices.txt"
 colorblind_ordered_canonical_ordering(K4, perm, n, "K4", max_time, false, results_file )
 
 
