@@ -56,6 +56,7 @@ function color_from_difference(y, E, ind_edges, n)
             push!(colored_edges,e)
             for f in E
                 if f ∉ colored_edges
+                    @error "double check whether it should be == 0 or == 1"
                     if ind_edges[e]>ind_edges[f] && y[e,f] == 0 || ind_edges[e]<ind_edges[f] && y[f,e] == 0
                         feasible_colors[ind_edges[f]] = colors_draw[c+2]
                         A[src(f), dst(f)] = c
@@ -170,6 +171,7 @@ function colorblind_canonical_ordering(GOrd, GRain, n, relaxation=false, max_col
             if ind_edges[e1]>ind_edges[e2]
                 for e3 in E
                     if ind_edges[e2]>ind_edges[e3]
+                        @error "Transitivity constraints incorrect?"
                         @constraint(m, y[e2,e3] <= y[e1,e2] + y[e1,e3])
                         @constraint(m, y[e2,e3] >= y[e1,e2] - y[e1,e3])
                         @constraint(m, y[e2,e3] >= y[e1,e3] - y[e1,e2])
