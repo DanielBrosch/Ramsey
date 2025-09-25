@@ -1,0 +1,79 @@
+Loaded 134 forbidden graphs from F_ordered_edges3__forbidden.txt
+Objective file not provided, trying default filename F_ordered_edges3__objective.txt
+Loading objective function from file F_ordered_edges3__objective.txt
+# of entries in objective is 1
+# of linear constraints is 0
+Loading unlabeled flags from file F_ordered_edges3__n5_unlabeled.txt
+Loaded # of unlabeled flags of size 0 is 1
+Loaded # of unlabeled flags of size 1 is 1
+Loaded # of unlabeled flags of size 2 is 3
+Loaded # of unlabeled flags of size 3 is 21
+Loaded # of unlabeled flags of size 4 is 279
+Loaded # of unlabeled flags of size 5 is 6001
+Loading labeled flags from file F_ordered_edges3__n5_labeled.txt
+Labeled flag have 22 types. Counts:  60 52 52 52 52 52 52 52 60 60 52 52 52 52 52 52 52 52 52 52 52 63
+Generating SDP program to SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s
+Computing specific part of the SDP...
+Added 0 additional blocks.
+Computing flag products part of the SDP...
+Trying hack by setting MKL_DEBUG_CPU_TYPE=5
+Solvers found:  csdp 
+Executing: 'csdp'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.result'  2>&1  | tee  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.csdp.log'
+CSDP 6.2.0
+Iter:  0 Ap: 0.00e+00 Pobj:  4.0324683e+01 Ad: 0.00e+00 Dobj:  0.0000000e+00 
+Iter:  1 Ap: 7.99e-02 Pobj:  1.5940938e+00 Ad: 1.51e-01 Dobj:  5.7902340e+02 
+Iter:  2 Ap: 2.75e-02 Pobj:  1.4093301e+00 Ad: 2.41e-01 Dobj:  3.6404349e+03 
+Iter:  3 Ap: 5.54e-02 Pobj:  1.1039404e+00 Ad: 2.30e-01 Dobj:  1.0765847e+04 
+Iter:  4 Ap: 2.70e-01 Pobj:  3.7216485e-01 Ad: 5.31e-01 Dobj:  3.0870677e+04 
+Iter:  5 Ap: 2.76e-01 Pobj:  1.5915309e-01 Ad: 7.31e-01 Dobj:  8.2584912e+04 
+Iter:  6 Ap: 3.59e-01 Pobj:  4.1176983e-02 Ad: 3.52e-01 Dobj:  1.4148058e+05 
+Iter:  7 Ap: 4.20e-01 Pobj:  1.4201940e-02 Ad: 1.00e+00 Dobj:  2.9363291e+05 
+Iter:  8 Ap: 7.88e-01 Pobj:  2.4352971e-03 Ad: 1.00e+00 Dobj:  2.8637821e+05 
+Iter:  9 Ap: 7.26e-01 Pobj:  8.8157327e-04 Ad: 1.00e+00 Dobj:  2.1168399e+05 
+Iter: 10 Ap: 7.45e-01 Pobj:  4.3591695e-04 Ad: 1.00e+00 Dobj:  1.4411965e+05 
+Iter: 11 Ap: 6.40e-01 Pobj:  3.2432429e-04 Ad: 1.00e+00 Dobj:  8.4268960e+04 
+Iter: 12 Ap: 6.22e-01 Pobj:  2.7670162e-04 Ad: 1.00e+00 Dobj:  5.1090485e+04 
+Iter: 13 Ap: 1.00e+00 Pobj:  2.4808746e-04 Ad: 1.00e+00 Dobj:  1.1686265e+04 
+Iter: 14 Ap: 1.00e+00 Pobj:  2.4782284e-04 Ad: 9.86e-01 Dobj:  6.2423261e+02 
+Iter: 15 Ap: 1.00e+00 Pobj:  2.4884632e-04 Ad: 9.96e-01 Dobj:  2.9107045e+01 
+Iter: 16 Ap: 1.00e+00 Pobj:  2.8016588e-04 Ad: 1.00e+00 Dobj:  2.8125967e+00 
+Iter: 17 Ap: 1.00e+00 Pobj:  1.7908478e-03 Ad: 1.00e+00 Dobj:  1.7645977e+00 
+Iter: 18 Ap: 8.30e-02 Pobj:  1.6923338e-01 Ad: 1.82e-01 Dobj:  2.0990866e+00 
+Iter: 19 Ap: 7.15e-02 Pobj:  1.8167893e-01 Ad: 1.00e+00 Dobj:  2.0060042e+00 
+Iter: 20 Ap: 6.35e-01 Pobj:  3.1465205e-01 Ad: 8.12e-01 Dobj:  1.4876172e+00 
+Iter: 21 Ap: 6.31e-01 Pobj:  3.3888569e-01 Ad: 1.00e+00 Dobj:  1.2730276e+00 
+Iter: 22 Ap: 1.00e+00 Pobj:  4.1392667e-01 Ad: 1.00e+00 Dobj:  8.5054039e-01 
+Iter: 23 Ap: 1.00e+00 Pobj:  4.4452696e-01 Ad: 1.00e+00 Dobj:  7.0371633e-01 
+Iter: 24 Ap: 8.99e-01 Pobj:  4.6949596e-01 Ad: 1.00e+00 Dobj:  5.9320924e-01 
+Iter: 25 Ap: 1.00e+00 Pobj:  4.8504676e-01 Ad: 1.00e+00 Dobj:  5.4924889e-01 
+Iter: 26 Ap: 1.00e+00 Pobj:  4.9255446e-01 Ad: 1.00e+00 Dobj:  5.2079354e-01 
+Iter: 27 Ap: 1.00e+00 Pobj:  4.9522450e-01 Ad: 1.00e+00 Dobj:  5.1055642e-01 
+Iter: 28 Ap: 1.00e+00 Pobj:  4.9699512e-01 Ad: 1.00e+00 Dobj:  5.0331262e-01 
+Iter: 29 Ap: 1.00e+00 Pobj:  4.9777736e-01 Ad: 1.00e+00 Dobj:  5.0006758e-01 
+Iter: 30 Ap: 1.00e+00 Pobj:  4.9807324e-01 Ad: 1.00e+00 Dobj:  4.9879844e-01 
+Iter: 31 Ap: 9.01e-01 Pobj:  4.9813757e-01 Ad: 1.00e+00 Dobj:  4.9850335e-01 
+Iter: 32 Ap: 9.45e-01 Pobj:  4.9816641e-01 Ad: 1.00e+00 Dobj:  4.9844433e-01 
+Iter: 33 Ap: 1.00e+00 Pobj:  4.9819759e-01 Ad: 1.00e+00 Dobj:  4.9833951e-01 
+Iter: 34 Ap: 9.21e-01 Pobj:  4.9822162e-01 Ad: 1.00e+00 Dobj:  4.9826231e-01 
+Iter: 35 Ap: 6.40e-01 Pobj:  4.9822436e-01 Ad: 9.27e-01 Dobj:  4.9825957e-01 
+Iter: 36 Ap: 1.00e+00 Pobj:  4.9823253e-01 Ad: 1.00e+00 Dobj:  4.9824498e-01 
+Iter: 37 Ap: 1.00e+00 Pobj:  4.9823826e-01 Ad: 1.00e+00 Dobj:  4.9823623e-01 
+Iter: 38 Ap: 7.14e-01 Pobj:  4.9823918e-01 Ad: 9.79e-01 Dobj:  4.9823439e-01 
+Iter: 39 Ap: 1.00e+00 Pobj:  4.9824127e-01 Ad: 9.55e-01 Dobj:  4.9823550e-01 
+Iter: 40 Ap: 1.00e+00 Pobj:  4.9824220e-01 Ad: 1.00e+00 Dobj:  4.9824082e-01 
+Iter: 41 Ap: 1.00e+00 Pobj:  4.9824242e-01 Ad: 1.00e+00 Dobj:  4.9824232e-01 
+Iter: 42 Ap: 9.60e-01 Pobj:  4.9824245e-01 Ad: 9.41e-01 Dobj:  4.9824244e-01 
+Success: SDP solved
+Primal objective value: 4.9824245e-01 
+Dual objective value: 4.9824244e-01 
+Relative primal infeasibility: 3.07e-13 
+Relative dual infeasibility: 6.52e-10 
+Real Relative Gap: -5.64e-09 
+XZ Relative Gap: 4.07e-09 
+DIMACS error measures: 8.87e-12 0.00e+00 1.84e-09 0.00e+00 -5.64e-09 4.07e-09
+Elements time: 82.965268 
+Factor time: 39.897594 
+Other time: 185.930178 
+Total time: 308.793041 
+Done.
+Thu Sep 25 00:17:04 2025 p3¢Ë¬w@LAPTOP-38R957I6 /home/sydney/flags/ordered_ramsey/Table7Row7 ../a.out  -n  5  -lb  time taken 0d+0h+5m+10s Memory=8M

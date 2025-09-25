@@ -1,0 +1,6 @@
+load("../rounding_Integer.sage")
+round_program("SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s",scale=10)
+'''
+Result:
+Minimum (after unscaling) found at 5578 / 6001 Value is 0.02272692581227715227269258122771526940992313092210016688626 / 10000000000000000000000000000000000000000000  # =  0.02272692581227715
+'''
