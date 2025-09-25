@@ -1,5 +1,7 @@
 using Combinatorics, FlagSOS, AbstractAlgebra
 
+# Upper bounds for Table 6
+
 # computes the blow-up of the matrix A, blowing up the rows and columns of A according to the sizes
 function blow_up(A::Matrix{Int}, sizes::Vector{Int})
     @assert size(A, 1) == length(sizes)
