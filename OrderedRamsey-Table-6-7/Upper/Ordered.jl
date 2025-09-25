@@ -2,6 +2,8 @@ using Combinatorics, FlagSOS, AbstractAlgebra
 
 # Upper bounds for Table 6
 
+dir = "./OrderedRamsey-Table-6-7/Upper/"
+
 # computes the blow-up of the matrix A, blowing up the rows and columns of A according to the sizes
 function blow_up(A::Matrix{Int}, sizes::Vector{Int})
     @assert size(A, 1) == length(sizes)
@@ -282,7 +284,7 @@ function adj_to_lidicky(A; induced=true)
     return lid
 end
 
-open("Ordered/bounds.txt", "w") do io
+open(dir*"Ordered/bounds.txt", "w") do io
     for (G, (l, u)) in ramsey_bounds
         if l == u
             println(io, "$(adj_to_lidicky(G)) = $l")
@@ -300,7 +302,7 @@ for (G, (l, u)) in ramsey_bounds
     l == u && continue
     G_lid = adj_to_lidicky(G)
     folder_name = replace(G_lid, " " => "")
-    folder = "Ordered/$folder_name/"
+    folder = dir*"Ordered/$folder_name/"
     !isdir(folder) && mkdir(folder)
     open(folder * "/F_ordered_edges3partition__objectivee.txt", "w") do io
         println(io, "1 2 0 1")
@@ -360,7 +362,7 @@ G_sorted = [
 # sort!(ramsey_bounds_sorted, by=x -> (size(x[1], 1), vec(x[1])))
 
 cd(@__DIR__)
-open("Ordered/table.tex", "w") do io
+open(dir*"Ordered/table.tex", "w") do io
     println(io, "\\begin{table}")
     println(io, "\\centering")
     print(io, "\t\\begin{tabular}{")
