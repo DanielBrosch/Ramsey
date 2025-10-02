@@ -1,1 +1,23 @@
-./run.sh: line 5: ../a.out: No such file or directory
+Loaded 140 forbidden graphs from F_ordered_edges3__forbidden.txt
+Objective file not provided, trying default filename F_ordered_edges3__objective.txt
+Loading objective function from file F_ordered_edges3__objective.txt
+# of entries in objective is 1
+# of linear constraints is 0
+Loading unlabeled flags from file F_ordered_edges3__n5_unlabeled.txt
+Loaded # of unlabeled flags of size 0 is 1
+Loaded # of unlabeled flags of size 1 is 1
+Loaded # of unlabeled flags of size 2 is 3
+Loaded # of unlabeled flags of size 3 is 21
+Loaded # of unlabeled flags of size 4 is 279
+Loaded # of unlabeled flags of size 5 is 6001
+Loading labeled flags from file F_ordered_edges3__n5_labeled.txt
+Labeled flag have 22 types. Counts:  60 52 52 52 52 52 52 52 52 52 60 52 52 52 52 52 52 52 52 60 52 63
+Generating SDP program to SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s
+Computing specific part of the SDP...
+Added 0 additional blocks.
+Computing flag products part of the SDP...
+Trying hack by setting MKL_DEBUG_CPU_TYPE=5
+Solvers found:  csdp 
+Executing: 'csdp'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.result'  2>&1  | tee  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.csdp.log'
+CSDP 6.2.0
+Iter:  0 Ap: 0.00e+00 Pobj:  4.0324683e+01 Ad: 0.00e+00 Dobj:  0.0000000e+00 

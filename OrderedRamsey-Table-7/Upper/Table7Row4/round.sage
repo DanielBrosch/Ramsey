@@ -1,5 +1,6 @@
+import sys
 load("../rounding_Integer.sage")
-round_program("SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s",scale=10)
+round_program("SDP_n"+sys.argv[1]+"_LB_F_ordered_edges3__objective.txt.dat-s",scale=10)
 '''
 Result:
 Minimum (after unscaling) found at 5755 / 6065 Value is 0.03287416877066591
