@@ -1,0 +1,117 @@
+Loaded 140 forbidden graphs from F_ordered_edges3__forbidden.txt
+Objective file not provided, trying default filename F_ordered_edges3__objective.txt
+Loading objective function from file F_ordered_edges3__objective.txt
+# of entries in objective is 1
+# of linear constraints is 0
+Failed opening file with unlabeled flags F_ordered_edges3__n5_unlabeled.txt
+Trying to load file with smaller flags...
+Failed opening file with unlabeled flags F_ordered_edges3__n4_unlabeled.txt
+Failed opening file with unlabeled flags F_ordered_edges3__n3_unlabeled.txt
+Failed opening file with unlabeled flags F_ordered_edges3__n2_unlabeled.txt
+Failed opening file with unlabeled flags F_ordered_edges3__n1_unlabeled.txt
+Unable to load any smaller graphs. Starting from empty graph.
+Generating unlabeled flags of sizes 1 to 5
+Unlabbeled flags of size 1: 1
+Unlabbeled flags of size 2: 3
+Unlabbeled flags of size 3: 15
+Unlabbeled flags of size 4: 127
+Unlabbeled flags of size 5: 1767
+Writing unlabeled flags to file F_ordered_edges3__n5_unlabeled.txt
+Failed opening file with labeled flags F_ordered_edges3__n5_labeled.txt
+Generating labeled flags...
+Getting labeled flags of size 4:3
+New type: New type: 3 7   1 1  1  New type: New type: 3 7   3 3  3  New type: New type: 
+3 7   2 3  2  3 7   2 2  1  
+New type: New type: 3 7   3 1  3  3 7   2 2  2  
+New type: New type: 
+3 7   3 3  1  
+New type: New type: 3 7   1 3  3  
+New type: 3 7   2 2  3  3 7   3 3  2  
+
+3 7   3 2  3  
+
+New type: 3 7   3 2  2  
+
+New type: 3 7   2 1  2  
+3 7   2 3  3  3 7   1 2  2  
+
+Generated 15 types of size 3
+15 types of size 3 generated
+Type 0 has no labeled flags
+Type 1 has no labeled flags
+Type 2 has no labeled flags
+Type 3 has no labeled flags
+Type 4 has no labeled flags
+Type 5 has no labeled flags
+Type 6 has no labeled flags
+Type 7 has no labeled flags
+Type 8 has no labeled flags
+Type 9 has no labeled flags
+Type 10 has no labeled flags
+Type 11 has no labeled flags
+Type 12 has no labeled flags
+Type 13 has no labeled flags
+Type 14 has no labeled flags
+Got 15 types 12 24 44 24 24 44 24 44 24 44 44 44 44 24 44 
+Getting labeled flags of size 3:1
+New type: 1 1   
+Generated 1 types of size 1
+1 types of size 1 generated
+Type 0 has no labeled flags
+Got 1 types 45 
+Writing labeled flags to file F_ordered_edges3__n5_labeled.txt
+Labeled flag have 16 types. Counts:  12 24 44 24 24 44 24 44 24 44 44 44 44 24 44 45
+Generating SDP program to SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s
+Computing specific part of the SDP...
+Added 0 additional blocks.
+Computing flag products part of the SDP...
+Trying hack by setting MKL_DEBUG_CPU_TYPE=5
+Solvers found:  csdp 
+Executing: 'csdp'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.result'  2>&1  | tee  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.csdp.log'
+CSDP 6.2.0
+Iter:  0 Ap: 0.00e+00 Pobj:  5.3217642e+01 Ad: 0.00e+00 Dobj:  0.0000000e+00 
+Iter:  1 Ap: 7.93e-02 Pobj:  2.1065694e+00 Ad: 2.82e-01 Dobj:  5.0101495e+02 
+Iter:  2 Ap: 9.83e-02 Pobj:  1.7453444e+00 Ad: 5.16e-01 Dobj:  2.2944087e+03 
+Iter:  3 Ap: 4.75e-01 Pobj:  6.6136511e-01 Ad: 9.23e-01 Dobj:  5.0961510e+03 
+Iter:  4 Ap: 2.54e-01 Pobj:  3.6727647e-01 Ad: 1.00e+00 Dobj:  8.4850763e+03 
+Iter:  5 Ap: 7.21e-01 Pobj:  7.4563602e-02 Ad: 1.00e+00 Dobj:  8.9325324e+03 
+Iter:  6 Ap: 7.42e-01 Pobj:  1.4085768e-02 Ad: 1.00e+00 Dobj:  8.7915967e+03 
+Iter:  7 Ap: 7.04e-01 Pobj:  2.9103012e-03 Ad: 1.00e+00 Dobj:  7.8587785e+03 
+Iter:  8 Ap: 7.24e-01 Pobj:  7.8425155e-04 Ad: 9.24e-01 Dobj:  6.0404439e+03 
+Iter:  9 Ap: 5.70e-01 Pobj:  4.3297459e-04 Ad: 8.14e-01 Dobj:  5.2590386e+03 
+Iter: 10 Ap: 5.49e-01 Pobj:  3.1041820e-04 Ad: 1.00e+00 Dobj:  4.0768006e+03 
+Iter: 11 Ap: 1.00e+00 Pobj:  2.1294328e-04 Ad: 1.00e+00 Dobj:  1.9845440e+03 
+Iter: 12 Ap: 1.00e+00 Pobj:  2.1289267e-04 Ad: 9.78e-01 Dobj:  1.2052166e+02 
+Iter: 13 Ap: 1.00e+00 Pobj:  2.1446891e-04 Ad: 9.90e-01 Dobj:  6.5632206e+00 
+Iter: 14 Ap: 1.00e+00 Pobj:  2.4952770e-04 Ad: 1.00e+00 Dobj:  7.3134130e-01 
+Iter: 15 Ap: 1.00e+00 Pobj:  2.1166516e-03 Ad: 1.00e+00 Dobj:  4.9638451e-01 
+Iter: 16 Ap: 6.75e-02 Pobj:  1.2703580e-01 Ad: 1.19e-01 Dobj:  7.0634144e-01 
+Iter: 17 Ap: 1.00e+00 Pobj:  1.6646939e-01 Ad: 1.00e+00 Dobj:  6.0438844e-01 
+Iter: 18 Ap: 1.00e+00 Pobj:  2.4878103e-01 Ad: 1.00e+00 Dobj:  4.1692396e-01 
+Iter: 19 Ap: 1.00e+00 Pobj:  2.6213091e-01 Ad: 1.00e+00 Dobj:  3.6434693e-01 
+Iter: 20 Ap: 1.00e+00 Pobj:  2.9630955e-01 Ad: 1.00e+00 Dobj:  3.3066697e-01 
+Iter: 21 Ap: 1.00e+00 Pobj:  3.1010799e-01 Ad: 9.95e-01 Dobj:  3.2155237e-01 
+Iter: 22 Ap: 1.00e+00 Pobj:  3.1541579e-01 Ad: 9.98e-01 Dobj:  3.1828306e-01 
+Iter: 23 Ap: 1.00e+00 Pobj:  3.1684587e-01 Ad: 1.00e+00 Dobj:  3.1742334e-01 
+Iter: 24 Ap: 1.00e+00 Pobj:  3.1715753e-01 Ad: 1.00e+00 Dobj:  3.1723835e-01 
+Iter: 25 Ap: 8.67e-01 Pobj:  3.1719114e-01 Ad: 6.01e-01 Dobj:  3.1722665e-01 
+Iter: 26 Ap: 8.80e-01 Pobj:  3.1720621e-01 Ad: 8.08e-01 Dobj:  3.1721650e-01 
+Iter: 27 Ap: 3.53e-01 Pobj:  3.1720793e-01 Ad: 8.49e-01 Dobj:  3.1721617e-01 
+Iter: 28 Ap: 1.00e+00 Pobj:  3.1721227e-01 Ad: 1.00e+00 Dobj:  3.1721667e-01 
+Iter: 29 Ap: 1.00e+00 Pobj:  3.1721767e-01 Ad: 9.29e-01 Dobj:  3.1721618e-01 
+Iter: 30 Ap: 1.00e+00 Pobj:  3.1721845e-01 Ad: 9.59e-01 Dobj:  3.1721831e-01 
+Iter: 31 Ap: 9.56e-01 Pobj:  3.1721852e-01 Ad: 9.45e-01 Dobj:  3.1721851e-01 
+Success: SDP solved
+Primal objective value: 3.1721852e-01 
+Dual objective value: 3.1721851e-01 
+Relative primal infeasibility: 2.84e-13 
+Relative dual infeasibility: 1.44e-09 
+Real Relative Gap: -7.10e-09 
+XZ Relative Gap: 4.18e-09 
+DIMACS error measures: 1.35e-12 0.00e+00 4.03e-09 0.00e+00 -7.10e-09 4.18e-09
+Elements time: 3.313623 
+Factor time: 3.116711 
+Other time: 29.633700 
+Total time: 36.064033 
+Done.
+Thu Oct  2 12:12:02 2025 $ØÚÓºz@LAPTOP-38R957I6 /home/sydney/flags/ordered_ramsey/Ramsey/OrderedRamsey-Table-7/Upper/Table7Row3 ../a.out  -n  5  -lb  time taken 0d+0h+0m+36s Memory=6M
