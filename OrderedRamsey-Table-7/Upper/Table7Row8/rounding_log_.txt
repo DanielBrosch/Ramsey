@@ -1,0 +1,4 @@
+Traceback (most recent call last):
+  File "/home/sydney/flags/ordered_ramsey/Ramsey/OrderedRamsey-Table-7/Upper/Table7Row8/round.sage.py", line 9, in <module>
+    round_program("SDP_n"+sys.argv[_sage_const_1 ]+"_LB_F_ordered_edges3__objective.txt.dat-s",scale=_sage_const_10 )
+IndexError: list index out of range

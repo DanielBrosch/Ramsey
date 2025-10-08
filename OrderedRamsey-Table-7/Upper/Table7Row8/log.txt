@@ -1,1 +1,11 @@
-./run.sh: line 5: ../a.out: No such file or directory
+Loaded 140 forbidden graphs from F_ordered_edges3__forbidden.txt
+Objective file not provided, trying default filename F_ordered_edges3__objective.txt
+Loading objective function from file F_ordered_edges3__objective.txt
+# of entries in objective is 1
+# of linear constraints is 0
+Failed opening file with unlabeled flags F_ordered_edges3__n0_unlabeled.txt
+Trying to load file with smaller flags...
+Generating unlabeled flags of sizes 0 to 0
+No flags of size -1
+Generating flags of size 0 failed.
+Thu Oct  2 16:00:37 2025 À§BÑ{@LAPTOP-38R957I6 /home/sydney/flags/ordered_ramsey/Ramsey/OrderedRamsey-Table-7/Upper/Table7Row8 ../a.out  -n  -lb  time taken 0d+0h+0m+0s Memory=4M
