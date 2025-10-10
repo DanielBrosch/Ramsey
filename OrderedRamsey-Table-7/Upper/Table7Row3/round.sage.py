@@ -4,8 +4,9 @@
 from sage.all_cmdline import *   # import sage library
 
 _sage_const_10 = Integer(10)
+import sys
 load("../rounding_Integer.sage")
-round_program("SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s",scale=_sage_const_10 )
+round_program("SDP_n"+sys.argv+"_LB_F_ordered_edges3__objective.txt.dat-s",scale=_sage_const_10 )
 '''
 Result:
 Minimum (after unscaling) found at 4160 / 6001 Value is 0.031721852257217624
