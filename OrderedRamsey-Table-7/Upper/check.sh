@@ -7,7 +7,7 @@ ls -d */ | while read entry ; do
 
 cd "$entry"
 
-value=`cat rounding_log.txt | grep  '# ='  |  sed 's/.*= //'`
+value=`cat n5/rounding_log5.txt | grep  '# ='  |  sed 's/.*= //'`
 
 table_entry=`echo "import math;  print(math.ceil(1/$value))" | python3`
 
