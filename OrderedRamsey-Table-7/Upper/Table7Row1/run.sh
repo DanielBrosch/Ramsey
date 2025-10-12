@@ -14,7 +14,7 @@ echo "Start solving"
 ../a.out -n $1 -lb -fgf &> n$1/solver_log_$1.txt
 echo "Solving finished"
 echo "Start Rounding"
-sage round.sage $1 $> n$1/rounding_log$1.txt
+sage round.sage $1 $> n$1/rounding_log_$1.txt
 echo "Rounding finished"
 mv SDP_n$1* n$1
 zip -r n$1.zip n$1
