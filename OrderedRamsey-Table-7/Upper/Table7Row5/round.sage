@@ -1,8 +1,10 @@
 import sys
 load("../rounding_Integer.sage")
-round_program("SDP_n"+sys.argv[1]+"_LB_F_ordered_edges3__objective.txt.dat-s",scale=10)
+S = 10
+if int(sys.argv[1]) == 6:
+	S = 30
+round_program("SDP_n" + str(sys.argv[1]) + "_LB_F_ordered_edges3__objective.txt.dat-s",scale=S)
 '''
 Result:
-Minimum (after unscaling) found at 3773 / 6065 Value is 0.020166009528582995
-201660095285829954691538561448176407569728 / 10000000000000000000000000000000000000000000  # =  0.020166009528582995
+Minimum (after unscaling) found at 5936 / 6001 Value is 0.03746387918200873374638791820087306596553119645636250748306 / 10000000000000000000000000000000000000000000  # =  0.03746387918200873
 '''

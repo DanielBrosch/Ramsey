@@ -1,0 +1,18 @@
+#!/bin/bash
+#
+## Copy/paste this job script into a text file and submit with the command:
+##    sbatch thefilename
+
+#SBATCH --nodes=1   # Number of nodes to use
+#SBATCH --ntasks-per-node=10   # Use 10 processor cores per node 
+#SBATCH --time=0-25:0:0   # Walltime limit (DD-HH:MM:SS)
+#SBATCH --job-name="row9"   # Job name to display in squeue
+#SBATCH --mail-user=miyasaki@iastate.edu   # Email address
+
+# LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
+module load micromamba
+eval "$(micromamba shell hook --shell=bash)"
+micromamba activate sage
+./run.sh 5
+./run.sh 6
+micromamba deactivate

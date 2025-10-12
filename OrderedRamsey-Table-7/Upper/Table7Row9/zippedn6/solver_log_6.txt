@@ -1,0 +1,383 @@
+Loaded 140 forbidden graphs from F_ordered_edges3__forbidden.txt
+Objective file not provided, trying default filename F_ordered_edges3__objective.txt
+Loading objective function from file F_ordered_edges3__objective.txt
+# of entries in objective is 1
+# of linear constraints is 0
+Unable to load any smaller graphs. Starting from empty graph.
+Generating unlabeled flags of sizes 1 to 6
+Unlabbeled flags of size 1: 1
+Unlabbeled flags of size 2: 3
+Unlabbeled flags of size 3: 15
+Unlabbeled flags of size 4: 127
+Unlabbeled flags of size 5: 1767
+Unlabbeled flags of size 6: 35055
+Writing unlabeled flags to file F_ordered_edges3__n6_unlabeled.txt
+Generating labeled flags...
+Getting labeled flags of size 5:4
+New type: New type: New type: New type: 4 15   2 1 2  2 3  2  
+New type: New type: 4 15   1 1 1  1 1  1  
+4 15   3 2 2  2 2  2  New type: 4 15   3 3 3  2 1  2  4 15   2 2 1  3 2  2  4 15   2 2 3  3 3  3  
+4 15   1 3 2  3 2  3  
+
+New type: New type: New type: 4 15   2 2 2  3 3  1  
+New type: 4 15   3 3 3  2 3  2  
+4 15   2 1 1  2 2  1  
+New type: 4 15   2 3 2  2 2  2  
+New type: New type: 
+New type: 4 15   2 3 3  2 2  1  
+New type: 4 15   2 2 3  2 3  3  4 15   2 3 2  3 2  3  
+New type: 4 15   3 2 2  3 3  2  
+New type: 4 15   3 3 3  1 3  3  
+New type: 4 15   3 3 3  3 2  3  
+
+New type: 
+4 15   2 3 2  2 3  3  
+New type: New type: 4 15   1 1 2  1 2  2  4 15   2 3 3  2 2  3  
+New type: New type: 
+4 15   2 1 3  2 2  3  
+New type: 4 15   3 3 2  3 3  3  
+New type: 4 15   2 2 3  3 2  2  
+4 15   2 2 2  3 2  3  
+New type: 4 15   2 3 2  3 3  2  4 15   1 3 3  3 3  2  
+New type: New type: 4 15   1 3 3  3 3  1  
+New type: New type: 4 15   1 3 1  3 1  3  New type: New type: 4 15   2 2 1  1 2  2  
+4 15   2 3 2  2 2  3  
+New type: 4 15   3 2 2  2 3  3  4 15   2 2 2  2 3  2  4 15   3 2 2  3 2  3  New type: 4 15   2 3 2  2 3  2  
+New type: 4 15   2 2 2  3 2  2  
+New type: 4 15   2 3 3  2 3  3  
+New type: 4 15   2 2 2  1 2  2  
+New type: 4 15   2 2 2  3 1  3  
+New type: 4 15   2 3 3  2 2  2  
+New type: 4 15   2 2 2  2 1  2  
+New type: 4 15   2 2 3  1 3  3  
+New type: 4 15   2 2 3  3 3  2  
+New type: 4 15   2 2 3  2 2  2  
+New type: 4 15   2 3 1  2 2  3  
+New type: 4 15   2 2 2  1 3  3  
+New type: 4 15   2 2 2  2 2  1  
+New type: 
+New type: 4 15   2 2 2  2 2  2  
+New type: 4 15   2 2 2  2 2  3  
+4 15   3 3 3  3 3  2  
+New type: 
+New type: New type: 
+New type: 
+New type: 4 15   3 3 2  1 3  3  
+4 15   3 3 3  1 1  1  
+New type: 4 15   3 2 3  2 2  2  
+4 15   3 3 1  3 3  3  
+New type: 4 15   3 2 2  3 3  1  
+New type: 4 15   1 1 3  1 3  3  4 15   1 3 2  3 2  2  
+New type: 4 15   2 3 3  3 3  1  New type: 
+4 15   2 2 2  3 3  2  
+New type: New type: 4 15   2 2 2  3 3  3  New type: 4 15   3 2 3  3 2  3  
+
+New type: 
+4 15   3 3 2  1 2  2  
+
+4 15   3 1 3  3 3  3  
+New type: New type: 4 15   3 3 2  2 2  3  New type: New type: New type: 4 15   2 3 2  2 1  2  New type: 4 15   3 2 2  3 2  2  
+
+New type: 4 15   2 3 3  3 3  3  
+New type: 4 15   3 2 2  2 2  1  4 15   1 2 3  2 3  3  
+4 15   2 2 3  1 2  2  
+New type: 4 15   2 3 2  3 3  3  4 15   2 2 3  3 2  3  
+4 15   3 1 1  3 3  1  
+4 15   2 3 2  3 1  3  
+New type: 4 15   3 2 3  3 3  3  
+New type: New type: 4 15   3 2 3  3 3  2  
+New type: New type: 4 15   3 2 3  2 3  3  
+New type: 
+New type: 
+4 15   3 3 2  2 3  2  New type: 
+
+4 15   2 2 2  1 1  1  New type: New type: New type: 4 15   1 2 2  2 2  3  
+New type: 4 15   1 2 3  2 3  2  New type: 4 15   2 2 1  2 2  2  
+4 15   3 2 3  2 2  3  4 15   3 3 3  3 2  2  
+
+4 15   2 3 1  3 2  3  
+4 15   3 2 2  3 3  3  
+New type: New type: 
+New type: New type: 4 15   2 3 3  2 3  2  New type: 4 15   1 2 2  2 2  1  4 15   3 1 3  3 2  3  
+4 15   3 2 3  2 3  2  
+New type: New type: New type: 4 15   3 1 3  3 1  3  
+New type: 4 15   3 3 3  2 2  2  
+
+4 15   3 3 2  2 3  3  
+New type: 
+4 15   3 3 2  3 2  2  
+New type: 4 15   3 3 3  3 1  3  4 15   2 2 2  2 3  3  4 15   3 3 3  2 2  3  4 15   2 2 3  2 3  2  
+New type: 
+
+New type: 4 15   3 1 2  3 2  2  
+New type: 4 15   1 2 2  2 2  2  4 15   2 3 3  3 2  2  New type: New type: 4 15   3 3 1  2 3  3  
+
+New type: 4 15   2 3 3  3 3  2  
+4 15   2 3 3  3 2  3  
+New type: 4 15   1 2 1  2 1  2  
+New type: 
+New type: 
+New type: 4 15   2 1 3  2 3  3  4 15   2 2 3  2 2  3  
+New type: 
+New type: 
+4 15   3 3 3  3 3  1  
+4 15   3 3 2  3 2  3  
+New type: 4 15   3 2 2  2 2  3  
+New type: 4 15   3 3 2  3 3  2  
+4 15   3 1 2  3 3  2  
+New type: 4 15   2 1 2  2 1  2  
+New type: New type: New type: New type: 4 15   3 3 3  2 3  3  4 15   1 3 3  3 3  3  
+New type: 4 15   3 2 1  3 3  2  
+4 15   2 1 2  2 2  2  
+4 15   3 3 3  3 3  3  New type: 
+4 15   3 2 3  3 1  3  
+New type: 4 15   3 3 3  1 2  2  
+New type: New type: 
+New type: 4 15   3 3 2  2 2  2  4 15   3 2 1  2 3  2  
+New type: 4 15   3 2 3  2 1  2  
+New type: 4 15   2 3 2  3 2  2  4 15   3 3 3  2 2  1  
+New type: 
+
+4 15   3 2 2  2 3  2  
+New type: 4 15   3 2 3  3 2  2  
+New type: 4 15   3 3 1  1 3  3  
+Generated 127 types of size 4
+127 types of size 4 generated
+Type 0 has no labeled flags
+Type 1 has no labeled flags
+Type 2 has no labeled flags
+Type 3 has no labeled flags
+Type 4 has no labeled flags
+Type 5 has no labeled flags
+Type 6 has no labeled flags
+Type 7 has no labeled flags
+Type 8 has no labeled flags
+Type 9 has no labeled flags
+Type 10 has no labeled flags
+Type 11 has no labeled flags
+Type 12 has no labeled flags
+Type 13 has no labeled flags
+Type 14 has no labeled flags
+Type 15 has no labeled flags
+Type 16 has no labeled flags
+Type 17 has no labeled flags
+Type 18 has no labeled flags
+Type 19 has no labeled flags
+Type 20 has no labeled flags
+Type 21 has no labeled flags
+Type 22 has no labeled flags
+Type 23 has no labeled flags
+Type 24 has no labeled flags
+Type 25 has no labeled flags
+Type 26 has no labeled flags
+Type 27 has no labeled flags
+Type 28 has no labeled flags
+Type 29 has no labeled flags
+Type 30 has no labeled flags
+Type 31 has no labeled flags
+Type 32 has no labeled flags
+Type 33 has no labeled flags
+Type 34 has no labeled flags
+Type 35 has no labeled flags
+Type 36 has no labeled flags
+Type 37 has no labeled flags
+Type 38 has no labeled flags
+Type 39 has no labeled flags
+Type 40 has no labeled flags
+Type 41 has no labeled flags
+Type 42 has no labeled flags
+Type 43 has no labeled flags
+Type 44 has no labeled flags
+Type 45 has no labeled flags
+Type 46 has no labeled flags
+Type 47 has no labeled flags
+Type 48 has no labeled flags
+Type 49 has no labeled flags
+Type 50 has no labeled flags
+Type 51 has no labeled flags
+Type 52 has no labeled flags
+Type 53 has no labeled flags
+Type 54 has no labeled flags
+Type 55 has no labeled flags
+Type 56 has no labeled flags
+Type 57 has no labeled flags
+Type 58 has no labeled flags
+Type 59 has no labeled flags
+Type 60 has no labeled flags
+Type 61 has no labeled flags
+Type 62 has no labeled flags
+Type 63 has no labeled flags
+Type 64 has no labeled flags
+Type 65 has no labeled flags
+Type 66 has no labeled flags
+Type 67 has no labeled flags
+Type 68 has no labeled flags
+Type 69 has no labeled flags
+Type 70 has no labeled flags
+Type 71 has no labeled flags
+Type 72 has no labeled flags
+Type 73 has no labeled flags
+Type 74 has no labeled flags
+Type 75 has no labeled flags
+Type 76 has no labeled flags
+Type 77 has no labeled flags
+Type 78 has no labeled flags
+Type 79 has no labeled flags
+Type 80 has no labeled flags
+Type 81 has no labeled flags
+Type 82 has no labeled flags
+Type 83 has no labeled flags
+Type 84 has no labeled flags
+Type 85 has no labeled flags
+Type 86 has no labeled flags
+Type 87 has no labeled flags
+Type 88 has no labeled flags
+Type 89 has no labeled flags
+Type 90 has no labeled flags
+Type 91 has no labeled flags
+Type 92 has no labeled flags
+Type 93 has no labeled flags
+Type 94 has no labeled flags
+Type 95 has no labeled flags
+Type 96 has no labeled flags
+Type 97 has no labeled flags
+Type 98 has no labeled flags
+Type 99 has no labeled flags
+Type 100 has no labeled flags
+Type 101 has no labeled flags
+Type 102 has no labeled flags
+Type 103 has no labeled flags
+Type 104 has no labeled flags
+Type 105 has no labeled flags
+Type 106 has no labeled flags
+Type 107 has no labeled flags
+Type 108 has no labeled flags
+Type 109 has no labeled flags
+Type 110 has no labeled flags
+Type 111 has no labeled flags
+Type 112 has no labeled flags
+Type 113 has no labeled flags
+Type 114 has no labeled flags
+Type 115 has no labeled flags
+Type 116 has no labeled flags
+Type 117 has no labeled flags
+Type 118 has no labeled flags
+Type 119 has no labeled flags
+Type 120 has no labeled flags
+Type 121 has no labeled flags
+Type 122 has no labeled flags
+Type 123 has no labeled flags
+Type 124 has no labeled flags
+Type 125 has no labeled flags
+Type 126 has no labeled flags
+Got 127 types 15 30 55 30 55 55 55 30 55 30 55 55 55 30 30 55 98 98 86 94 55 55 94 55 86 55 30 78 30 55 30 55 78 98 78 94 94 55 70 70 55 98 55 98 55 98 98 98 94 86 98 55 55 55 78 78 55 55 30 70 86 55 70 55 55 94 98 78 94 98 55 98 98 98 78 55 55 98 98 98 86 98 55 55 70 98 55 98 70 55 98 98 98 98 55 98 98 86 98 70 78 98 55 55 98 94 98 55 55 98 55 30 70 55 30 55 86 98 30 86 55 55 55 30 55 55 55 
+Getting labeled flags of size 4:2
+New type: New type: 2 3   1  
+2 3   3  New type: 2 3   2  
+
+Generated 3 types of size 2
+3 types of size 2 generated
+Type 0 has no labeled flags
+Type 1 has no labeled flags
+Type 2 has no labeled flags
+Got 3 types 90 336 336 
+Getting labeled flags of size 3:0
+New type: 0 0  
+Generated 1 types of size 0
+1 types of size 0 generated
+Type 0 has no labeled flags
+Got 1 types 15 
+Writing labeled flags to file F_ordered_edges3__n6_labeled.txt
+Labeled flag have 131 types. Counts:  15 30 55 30 55 55 55 30 55 30 55 55 55 30 30 55 98 98 86 94 55 55 94 55 86 55 30 78 30 55 30 55 78 98 78 94 94 55 70 70 55 98 55 98 55 98 98 98 94 86 98 55 55 55 78 78 55 55 30 70 86 55 70 55 55 94 98 78 94 98 55 98 98 98 78 55 55 98 98 98 86 98 55 55 70 98 55 98 70 55 98 98 98 98 55 98 98 86 98 70 78 98 55 55 98 94 98 55 55 98 55 30 70 55 30 55 86 98 30 86 55 55 55 30 55 55 55 90 336 336 15
+Generating SDP program to SDP_n6_LB_F_ordered_edges3__objective.txt.dat-s
+Computing specific part of the SDP...
+Added 0 additional blocks.
+Computing flag products part of the SDP...
+Trying hack by setting MKL_DEBUG_CPU_TYPE=5
+Solvers found:  csdp 
+Executing: '/lustre/hdd/LAS/lidicky-lab/miyasaki/csdp6.2.0linuxx86_64/bin/csdp'  'SDP_n6_LB_F_ordered_edges3__objective.txt.dat-s'  'SDP_n6_LB_F_ordered_edges3__objective.txt.dat-s.result'  2>&1  | tee  'SDP_n6_LB_F_ordered_edges3__objective.txt.dat-s.csdp.log'
+CSDP 6.2.0
+Iter:  0 Ap: 0.00e+00 Pobj:  5.0259968e+05 Ad: 0.00e+00 Dobj:  0.0000000e+00 
+Iter:  1 Ap: 1.04e-01 Pobj:  1.9893183e+04 Ad: 1.52e-01 Dobj:  2.2819214e+01 
+Iter:  2 Ap: 6.54e-02 Pobj:  2.2047582e+04 Ad: 2.68e-01 Dobj:  1.8294626e+02 
+Iter:  3 Ap: 7.42e-02 Pobj:  1.9609114e+04 Ad: 4.64e-01 Dobj:  8.5533429e+02 
+Iter:  4 Ap: 1.77e-01 Pobj:  1.2756244e+04 Ad: 3.28e-01 Dobj:  1.6857859e+03 
+Iter:  5 Ap: 1.01e-01 Pobj:  1.0085764e+04 Ad: 3.57e-01 Dobj:  3.1330014e+03 
+Iter:  6 Ap: 1.46e-01 Pobj:  7.2206130e+03 Ad: 3.91e-01 Dobj:  5.3580029e+03 
+Iter:  7 Ap: 1.86e-01 Pobj:  4.8237151e+03 Ad: 3.65e-01 Dobj:  7.9060921e+03 
+Iter:  8 Ap: 1.86e-01 Pobj:  3.2486538e+03 Ad: 3.20e-01 Dobj:  1.0695472e+04 
+Iter:  9 Ap: 2.20e-01 Pobj:  2.0501901e+03 Ad: 4.46e-01 Dobj:  1.5132045e+04 
+Iter: 10 Ap: 2.56e-01 Pobj:  1.1484430e+03 Ad: 5.84e-01 Dobj:  2.2680890e+04 
+Iter: 11 Ap: 3.50e-01 Pobj:  5.2101323e+02 Ad: 1.00e+00 Dobj:  3.6739429e+04 
+Iter: 12 Ap: 7.30e-01 Pobj:  1.0861383e+02 Ad: 1.00e+00 Dobj:  3.9802770e+04 
+Iter: 13 Ap: 8.54e-01 Pobj:  1.0496187e+01 Ad: 1.00e+00 Dobj:  4.2100112e+04 
+Iter: 14 Ap: 8.70e-01 Pobj:  9.0848324e-01 Ad: 1.00e+00 Dobj:  4.4229422e+04 
+Iter: 15 Ap: 8.56e-01 Pobj:  8.5534253e-02 Ad: 1.00e+00 Dobj:  4.6805456e+04 
+Iter: 16 Ap: 7.77e-01 Pobj:  1.1700190e-02 Ad: 1.00e+00 Dobj:  5.1720316e+04 
+Iter: 17 Ap: 6.55e-01 Pobj:  2.4245538e-03 Ad: 1.00e+00 Dobj:  6.1590452e+04 
+Iter: 18 Ap: 6.85e-01 Pobj:  4.5518407e-04 Ad: 1.00e+00 Dobj:  7.1719009e+04 
+Iter: 19 Ap: 5.55e-01 Pobj:  2.0467977e-04 Ad: 6.09e-01 Dobj:  7.8586597e+04 
+Iter: 20 Ap: 2.95e-01 Pobj:  1.6179808e-04 Ad: 7.60e-01 Dobj:  8.2860817e+04 
+Iter: 21 Ap: 1.02e-01 Pobj:  1.5187983e-04 Ad: 7.41e-01 Dobj:  8.6231642e+04 
+Iter: 22 Ap: 2.55e-01 Pobj:  1.3036927e-04 Ad: 9.09e-01 Dobj:  7.7682697e+04 
+Iter: 23 Ap: 5.41e-01 Pobj:  9.7047226e-05 Ad: 1.00e+00 Dobj:  6.3226628e+04 
+Iter: 24 Ap: 1.00e+00 Pobj:  7.0872947e-05 Ad: 1.00e+00 Dobj:  3.0261351e+04 
+Iter: 25 Ap: 1.00e+00 Pobj:  7.0833527e-05 Ad: 9.69e-01 Dobj:  2.0927774e+03 
+Iter: 26 Ap: 1.00e+00 Pobj:  7.0987802e-05 Ad: 9.74e-01 Dobj:  1.4282929e+02 
+Iter: 27 Ap: 1.00e+00 Pobj:  7.4089682e-05 Ad: 9.94e-01 Dobj:  9.6940330e+00 
+Iter: 28 Ap: 1.00e+00 Pobj:  1.5807606e-04 Ad: 1.00e+00 Dobj:  3.3686902e+00 
+Iter: 29 Ap: 1.00e+00 Pobj:  2.4608633e-02 Ad: 8.22e-01 Dobj:  3.1118018e+00 
+Iter: 30 Ap: 9.20e-03 Pobj:  4.1876506e-01 Ad: 1.29e-02 Dobj:  3.6622262e+00 
+Iter: 31 Ap: 2.01e-01 Pobj:  7.4763087e-01 Ad: 5.37e-01 Dobj:  4.3668533e+00 
+Iter: 32 Ap: 1.26e-01 Pobj:  8.1201462e-01 Ad: 7.94e-01 Dobj:  4.3377227e+00 
+Iter: 33 Ap: 1.76e-01 Pobj:  9.2716305e-01 Ad: 3.75e-01 Dobj:  4.1090940e+00 
+Iter: 34 Ap: 3.61e-01 Pobj:  1.0888802e+00 Ad: 1.00e+00 Dobj:  3.8576115e+00 
+Iter: 35 Ap: 7.20e-01 Pobj:  1.4698656e+00 Ad: 9.99e-01 Dobj:  3.2327380e+00 
+Iter: 36 Ap: 4.81e-01 Pobj:  1.5143389e+00 Ad: 1.00e+00 Dobj:  2.8609075e+00 
+Iter: 37 Ap: 6.80e-01 Pobj:  1.6454883e+00 Ad: 1.00e+00 Dobj:  2.5401436e+00 
+Iter: 38 Ap: 5.01e-01 Pobj:  1.7093773e+00 Ad: 1.00e+00 Dobj:  2.4345702e+00 
+Iter: 39 Ap: 7.70e-01 Pobj:  1.8366766e+00 Ad: 1.00e+00 Dobj:  2.3121492e+00 
+Iter: 40 Ap: 7.27e-01 Pobj:  1.9193728e+00 Ad: 1.00e+00 Dobj:  2.2606784e+00 
+Iter: 41 Ap: 8.33e-01 Pobj:  1.9964518e+00 Ad: 1.00e+00 Dobj:  2.2060144e+00 
+Iter: 42 Ap: 8.15e-01 Pobj:  2.0377904e+00 Ad: 1.00e+00 Dobj:  2.1745385e+00 
+Iter: 43 Ap: 8.40e-01 Pobj:  2.0675107e+00 Ad: 1.00e+00 Dobj:  2.1470544e+00 
+Iter: 44 Ap: 8.15e-01 Pobj:  2.0837149e+00 Ad: 1.00e+00 Dobj:  2.1316178e+00 
+Iter: 45 Ap: 8.30e-01 Pobj:  2.0944276e+00 Ad: 1.00e+00 Dobj:  2.1211014e+00 
+Iter: 46 Ap: 9.18e-01 Pobj:  2.1016255e+00 Ad: 1.00e+00 Dobj:  2.1146382e+00 
+Iter: 47 Ap: 9.87e-01 Pobj:  2.1049506e+00 Ad: 1.00e+00 Dobj:  2.1115278e+00 
+Iter: 48 Ap: 1.00e+00 Pobj:  2.1063342e+00 Ad: 1.00e+00 Dobj:  2.1100036e+00 
+Iter: 49 Ap: 1.00e+00 Pobj:  2.1074878e+00 Ad: 1.00e+00 Dobj:  2.1086769e+00 
+Iter: 50 Ap: 9.58e-01 Pobj:  2.1077722e+00 Ad: 1.00e+00 Dobj:  2.1083710e+00 
+Iter: 51 Ap: 8.50e-01 Pobj:  2.1078851e+00 Ad: 1.00e+00 Dobj:  2.1082528e+00 
+Iter: 52 Ap: 9.12e-01 Pobj:  2.1080091e+00 Ad: 1.00e+00 Dobj:  2.1081416e+00 
+Iter: 53 Ap: 9.92e-01 Pobj:  2.1080527e+00 Ad: 1.00e+00 Dobj:  2.1081169e+00 
+Iter: 54 Ap: 1.00e+00 Pobj:  2.1080923e+00 Ad: 1.00e+00 Dobj:  2.1080838e+00 
+Iter: 55 Ap: 9.64e-01 Pobj:  2.1081211e+00 Ad: 1.00e+00 Dobj:  2.1080620e+00 
+Iter: 56 Ap: 1.00e+00 Pobj:  2.1081282e+00 Ad: 1.00e+00 Dobj:  2.1080577e+00 
+Iter: 57 Ap: 1.00e+00 Pobj:  2.1081411e+00 Ad: 1.00e+00 Dobj:  2.1080662e+00 
+Iter: 58 Ap: 3.61e-01 Pobj:  2.1081423e+00 Ad: 4.00e-01 Dobj:  2.1080927e+00 
+Iter: 59 Ap: 4.63e-01 Pobj:  2.1081440e+00 Ad: 5.09e-01 Dobj:  2.1081153e+00 
+Iter: 60 Ap: 3.29e-01 Pobj:  2.1081449e+00 Ad: 6.42e-01 Dobj:  2.1081326e+00 
+Iter: 61 Ap: 3.50e-01 Pobj:  2.1081459e+00 Ad: 5.49e-01 Dobj:  2.1081388e+00 
+Iter: 62 Ap: 5.03e-01 Pobj:  2.1081471e+00 Ad: 5.92e-01 Dobj:  2.1081436e+00 
+Iter: 63 Ap: 7.97e-01 Pobj:  2.1081490e+00 Ad: 1.00e+00 Dobj:  2.1081474e+00 
+Iter: 64 Ap: 9.56e-01 Pobj:  2.1081503e+00 Ad: 9.85e-01 Dobj:  2.1081496e+00 
+Iter: 65 Ap: 1.00e+00 Pobj:  2.1081507e+00 Ad: 9.73e-01 Dobj:  2.1081507e+00 
+Iter: 66 Ap: 8.84e-01 Pobj:  2.1081509e+00 Ad: 7.95e-01 Dobj:  2.1081509e+00 
+Iter: 67 Ap: 1.00e+00 Pobj:  2.1081510e+00 Ad: 9.56e-01 Dobj:  2.1081510e+00 
+Iter: 68 Ap: 8.12e-01 Pobj:  2.1081510e+00 Ad: 8.80e-01 Dobj:  2.1081510e+00 
+Success: SDP solved
+Primal objective value: 2.1081510e+00 
+Dual objective value: 2.1081510e+00 
+Relative primal infeasibility: 4.01e-11 
+Relative dual infeasibility: 3.42e-11 
+Real Relative Gap: 7.39e-12 
+XZ Relative Gap: 1.78e-09 
+DIMACS error measures: 5.94e-10 0.00e+00 2.07e-10 0.00e+00 7.39e-12 1.78e-09
+Elements time: 19811.342109 
+Factor time: 21267.909192 
+Other time: 519.981580 
+Total time: 41599.232881 
+Done.
+Sat Oct 11 06:35:44 2025 @nova22-8 /lustre/hdd/LAS/lidicky-lab/miyasaki/Ramsey/OrderedRamsey-Table-7/Upper/Table7Row9 ../a.out  -n  6  -lb  -fgf  -csdp  /lustre/hdd/LAS/lidicky-lab/miyasaki/csdp6.2.0linuxx86_64/bin/csdp  time taken 0d+11h+33m+25s Memory=363M
+Written to a log file /home/miyasaki/flag.log

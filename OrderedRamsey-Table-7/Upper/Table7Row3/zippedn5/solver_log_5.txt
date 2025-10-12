@@ -1,0 +1,113 @@
+Loaded 140 forbidden graphs from F_ordered_edges3__forbidden.txt
+Objective file not provided, trying default filename F_ordered_edges3__objective.txt
+Loading objective function from file F_ordered_edges3__objective.txt
+# of entries in objective is 1
+# of linear constraints is 0
+Unable to load any smaller graphs. Starting from empty graph.
+Generating unlabeled flags of sizes 1 to 5
+Unlabbeled flags of size 1: 1
+Unlabbeled flags of size 2: 3
+Unlabbeled flags of size 3: 15
+Unlabbeled flags of size 4: 127
+Unlabbeled flags of size 5: 1767
+Writing unlabeled flags to file F_ordered_edges3__n5_unlabeled.txt
+Generating labeled flags...
+Getting labeled flags of size 4:3
+New type: 3 7   1 1  1  
+New type: New type: 3 7   3 3  2  3 7   2 2  1  New type: New type: 
+New type: New type: 3 7   1 2  2  
+New type: 3 7   2 2  3  
+New type: 
+3 7   3 2  3  3 7   2 2  2  
+New type: 3 7   3 1  3  
+3 7   1 3  3  
+New type: New type: 3 7   3 3  3  
+New type: 3 7   3 2  2  New type: 3 7   3 3  1  3 7   2 3  2  
+3 7   2 3  3  
+
+New type: 3 7   2 1  2  
+
+
+Generated 15 types of size 3
+15 types of size 3 generated
+Type 0 has no labeled flags
+Type 1 has no labeled flags
+Type 2 has no labeled flags
+Type 3 has no labeled flags
+Type 4 has no labeled flags
+Type 5 has no labeled flags
+Type 6 has no labeled flags
+Type 7 has no labeled flags
+Type 8 has no labeled flags
+Type 9 has no labeled flags
+Type 10 has no labeled flags
+Type 11 has no labeled flags
+Type 12 has no labeled flags
+Type 13 has no labeled flags
+Type 14 has no labeled flags
+Got 15 types 12 24 44 24 44 44 44 24 24 44 44 44 44 24 24 
+Getting labeled flags of size 3:1
+New type: 1 1   
+Generated 1 types of size 1
+1 types of size 1 generated
+Type 0 has no labeled flags
+Got 1 types 45 
+Writing labeled flags to file F_ordered_edges3__n5_labeled.txt
+Labeled flag have 16 types. Counts:  12 24 44 24 44 44 44 24 24 44 44 44 44 24 24 45
+Generating SDP program to SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s
+Computing specific part of the SDP...
+Added 0 additional blocks.
+Computing flag products part of the SDP...
+Trying hack by setting MKL_DEBUG_CPU_TYPE=5
+Solvers found:  csdp 
+Executing: '/lustre/hdd/LAS/lidicky-lab/miyasaki/csdp6.2.0linuxx86_64/bin/csdp'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s'  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.result'  2>&1  | tee  'SDP_n5_LB_F_ordered_edges3__objective.txt.dat-s.csdp.log'
+CSDP 6.2.0
+Iter:  0 Ap: 0.00e+00 Pobj:  1.8925877e+04 Ad: 0.00e+00 Dobj:  0.0000000e+00 
+Iter:  1 Ap: 2.26e-01 Pobj:  7.4809590e+02 Ad: 4.98e-01 Dobj:  3.8656526e+01 
+Iter:  2 Ap: 1.04e-01 Pobj:  7.1954659e+02 Ad: 6.56e-01 Dobj:  2.2323989e+02 
+Iter:  3 Ap: 2.21e-01 Pobj:  4.5382962e+02 Ad: 8.68e-01 Dobj:  5.2087428e+02 
+Iter:  4 Ap: 2.78e-01 Pobj:  2.5731370e+02 Ad: 1.00e+00 Dobj:  7.9764746e+02 
+Iter:  5 Ap: 7.07e-01 Pobj:  5.7341280e+01 Ad: 1.00e+00 Dobj:  8.5886369e+02 
+Iter:  6 Ap: 8.01e-01 Pobj:  8.4913632e+00 Ad: 1.00e+00 Dobj:  9.0297457e+02 
+Iter:  7 Ap: 8.28e-01 Pobj:  1.0753100e+00 Ad: 1.00e+00 Dobj:  9.4415181e+02 
+Iter:  8 Ap: 8.36e-01 Pobj:  1.2757429e-01 Ad: 1.00e+00 Dobj:  9.8400376e+02 
+Iter:  9 Ap: 8.13e-01 Pobj:  1.7119597e-02 Ad: 1.00e+00 Dobj:  1.0113602e+03 
+Iter: 10 Ap: 7.73e-01 Pobj:  2.8233350e-03 Ad: 1.00e+00 Dobj:  9.5766854e+02 
+Iter: 11 Ap: 7.58e-01 Pobj:  7.8711004e-04 Ad: 9.38e-01 Dobj:  7.0647711e+02 
+Iter: 12 Ap: 5.39e-01 Pobj:  4.5911633e-04 Ad: 7.56e-01 Dobj:  6.0236955e+02 
+Iter: 13 Ap: 5.25e-01 Pobj:  3.2812575e-04 Ad: 1.00e+00 Dobj:  4.7750838e+02 
+Iter: 14 Ap: 1.00e+00 Pobj:  2.1209244e-04 Ad: 1.00e+00 Dobj:  2.5743639e+02 
+Iter: 15 Ap: 1.00e+00 Pobj:  2.1280165e-04 Ad: 9.78e-01 Dobj:  1.6072384e+01 
+Iter: 16 Ap: 1.00e+00 Pobj:  2.2621048e-04 Ad: 1.00e+00 Dobj:  1.1337256e+00 
+Iter: 17 Ap: 1.00e+00 Pobj:  6.7742944e-04 Ad: 1.00e+00 Dobj:  5.1122017e-01 
+Iter: 18 Ap: 5.31e-01 Pobj:  1.2059374e-01 Ad: 8.70e-01 Dobj:  6.6334191e-01 
+Iter: 19 Ap: 8.35e-01 Pobj:  1.6778542e-01 Ad: 1.00e+00 Dobj:  5.8804333e-01 
+Iter: 20 Ap: 1.00e+00 Pobj:  2.4791110e-01 Ad: 1.00e+00 Dobj:  4.1775653e-01 
+Iter: 21 Ap: 1.00e+00 Pobj:  2.6623043e-01 Ad: 1.00e+00 Dobj:  3.6066403e-01 
+Iter: 22 Ap: 1.00e+00 Pobj:  2.9818527e-01 Ad: 1.00e+00 Dobj:  3.2939103e-01 
+Iter: 23 Ap: 1.00e+00 Pobj:  3.1079015e-01 Ad: 9.91e-01 Dobj:  3.2115591e-01 
+Iter: 24 Ap: 1.00e+00 Pobj:  3.1559838e-01 Ad: 1.00e+00 Dobj:  3.1816843e-01 
+Iter: 25 Ap: 1.00e+00 Pobj:  3.1687927e-01 Ad: 1.00e+00 Dobj:  3.1740353e-01 
+Iter: 26 Ap: 1.00e+00 Pobj:  3.1716257e-01 Ad: 1.00e+00 Dobj:  3.1723541e-01 
+Iter: 27 Ap: 7.62e-01 Pobj:  3.1718901e-01 Ad: 3.64e-01 Dobj:  3.1722945e-01 
+Iter: 28 Ap: 1.00e+00 Pobj:  3.1720523e-01 Ad: 8.98e-01 Dobj:  3.1721685e-01 
+Iter: 29 Ap: 4.85e-01 Pobj:  3.1720795e-01 Ad: 9.68e-01 Dobj:  3.1721570e-01 
+Iter: 30 Ap: 9.97e-01 Pobj:  3.1721136e-01 Ad: 1.00e+00 Dobj:  3.1721676e-01 
+Iter: 31 Ap: 1.00e+00 Pobj:  3.1721619e-01 Ad: 1.00e+00 Dobj:  3.1721600e-01 
+Iter: 32 Ap: 1.00e+00 Pobj:  3.1721830e-01 Ad: 9.38e-01 Dobj:  3.1721784e-01 
+Iter: 33 Ap: 1.00e+00 Pobj:  3.1721851e-01 Ad: 9.66e-01 Dobj:  3.1721849e-01 
+Iter: 34 Ap: 9.57e-01 Pobj:  3.1721852e-01 Ad: 9.52e-01 Dobj:  3.1721852e-01 
+Success: SDP solved
+Primal objective value: 3.1721852e-01 
+Dual objective value: 3.1721852e-01 
+Relative primal infeasibility: 3.03e-13 
+Relative dual infeasibility: 2.15e-10 
+Real Relative Gap: -8.73e-10 
+XZ Relative Gap: 8.78e-10 
+DIMACS error measures: 1.44e-12 0.00e+00 6.00e-10 0.00e+00 -8.73e-10 8.78e-10
+Elements time: 2.119947 
+Factor time: 0.694983 
+Other time: 1.181669 
+Total time: 3.996599 
+Done.
+Fri Oct 10 18:52:09 2025 @nova18-wide-31 /lustre/hdd/LAS/lidicky-lab/miyasaki/Ramsey/OrderedRamsey-Table-7/Upper/Table7Row3 ../a.out  -n  5  -lb  -fgf  -csdp  /lustre/hdd/LAS/lidicky-lab/miyasaki/csdp6.2.0linuxx86_64/bin/csdp  time taken 0d+0h+0m+4s Memory=4M

@@ -1,0 +1,20 @@
+#!/bin/bash
+#
+## Copy/paste this job script into a text file and submit with the command:
+##    sbatch thefilename
+
+#SBATCH --nodes=1   # Number of nodes to use
+#SBATCH --ntasks-per-node=10   # Use 10 processor cores per node 
+#SBATCH --time=0-15:0:0   # Walltime limit (DD-HH:MM:SS)
+#SBATCH --job-name="round9"   # Job name to display in squeue
+#SBATCH --mail-user=miyasaki@iastate.edu   # Email address
+#SBATCH --mail-type=BEGIN,END,FAIL
+
+# LOAD MODULES, INSERT CODE, AND RUN YOUR PROGRAMS HERE
+module load micromamba
+eval "$(micromamba shell hook --shell=bash)"
+micromamba activate sage
+mv n5/SDP* .
+sage round.sage 5 &> n5/rounding_log_5.txt
+mv SDP* n5
+micromamba deactivate 
