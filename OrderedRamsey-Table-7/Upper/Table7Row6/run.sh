@@ -11,8 +11,7 @@ fi
 echo "constraints set"
 rm  n$1/*
 echo "Start solving"
-csdp=/lustre/hdd/LAS/lidicky-lab/miyasaki/csdp6.2.0linuxx86_64/bin/csdp
-../a.out -n $1 -lb -fgf -csdp $csdp &> n$1/solver_log_$1.txt
+../a.out -n $1 -lb -fgf &> n$1/solver_log_$1.txt
 echo "Solving finished"
 echo "Start Rounding"
 sage round.sage $1 $> n$1/rounding_log$1.txt
