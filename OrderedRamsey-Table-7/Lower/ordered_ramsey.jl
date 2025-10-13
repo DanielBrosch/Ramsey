@@ -16,9 +16,9 @@ using JLD2
 
 
 # Otherwise this makes a lot of mess in the top level directory
-dir_prefix="OrderedRamsey-Table-6-7/Lower/"
+dir_prefix="./"
 
-## Permuting a graph according to a permutation
+## Permuting graph G according to permutation perm
 function permute_graph(G, perm)
     n = nv(G)
     G_permuted = SimpleGraph(n)
@@ -31,7 +31,6 @@ end
 
 
 ## Plotting the graph
-# import Cairo, Fontconfig
 function plot_graph_linear(G, path_file=nothing) 
     n = nv(G)
     x_positions = [i for i in 1:n]
@@ -49,51 +48,24 @@ function plot_graph_linear(G, path_file=nothing)
     end
 end
 
-##
-
-# function color_from_difference(y, E, ind_edges, n)
-#     colors_draw = distinguishable_colors(100, [RGB(1,1,1), RGB(0,0,0)], dropseed=false)
-#     c = 1
-#     feasible_colors = [colors_draw[1] for e in E]
-#     colored_edges = []
-#     A = zeros(Int8, n, n)
-#     for e in E
-#         if e ∉ colored_edges
-#             feasible_colors[ind_edges[e]] = colors_draw[c+2]
-#             A[src(e), dst(e)] = c
-#             A[dst(e), src(e)] = c
-#             println("$e colored with color $c")
-#             push!(colored_edges,e)
-#             for f in E
-#                 if f ∉ colored_edges
-#                     if ind_edges[e]<ind_edges[f] && y[e,f] == 0 || ind_edges[e]>ind_edges[f] && y[f,e] == 0
-#                         feasible_colors[ind_edges[f]] = colors_draw[c+2]
-#                         A[src(f), dst(f)] = c
-#                         A[dst(f), src(f)] = c
-#                         push!(colored_edges,f)
-#                         println("$f colored with color $c")
-#                     end
-#                 end
-#             end
-#             c = c+1
-#         end
-#     end
-#     return A, feasible_colors, (c-1)
-# end
+# Creates an edge with ends u and v
+function edge(u,v)
+    return Edge(min(u,v), max(u,v))
+end
 
 
-
-
+# Writes and solves ILP for Ordered Graph on n vertices with no monochromatic G_perm.
+# Writes results to various files and draws a picture of the solution, if found
 function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_time=1200, save=false, results_file=nothing)
 
     println("Finding a coloring of K$n with no canonically colored $graph_name with permutation $perm\n\n")
 
     feasible=false
 
+    # Necessary graph structures
     Kn = complete_graph(n)
     V = vertices(Kn)
     E = edges(Kn)
-
 
     ind_edges = Dict(E .=> collect(1:binomial(n,2)))
     for e in E
@@ -101,114 +73,29 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
     end
 
     G = permute_graph(G_init, perm)
-
     VG = vertices(G)
     EG = edges(G)
-    @show collect(EG)
 
-    # all_G_copies_vertices = permutations(V, nv(G))
+    # All n-vertex subsets of Kn, though of a vertex sets for copies of G 
     all_G_copies_vertices = powerset(V, nv(G), nv(G))
-    # @show collect(all_G_copies_vertices)
-    all_G_copies_edges = [[Edge(min(G_copy[src(e)], G_copy[dst(e)]),max(G_copy[src(e)], G_copy[dst(e)])) for e in EG] for G_copy in all_G_copies_vertices]
-    # @show collect(all_G_copies_edges)
-    # all_G_copies = Dict(zip(collect(all_G_copies_vertices), [[Edge(min(G_copy[src(e)], G_copy[dst(e)]),max(G_copy[src(e)], G_copy[dst(e)])) for e in EG] for G_copy in all_G_copies_vertices]))
-    
+    # List of edge sets, one for each copy G_copy of G in K_n
+    all_G_copies_edges = [ [ edge(G_copy[src(e)], G_copy[dst(e)]) for e in EG ] for G_copy in all_G_copies_vertices ]
+
+    # Creating ILP
     m = Model(Gurobi.Optimizer)
-
     set_optimizer_attribute(m, "TIME_LIMIT", max_time)
-
-    # if relaxation
-    #     @variable(m, 1>=y[e1=E, e2=E; ind_edges[e1]<ind_edges[e2]]>=0)
-    # else
-    #     @variable(m, y[e1=E, e2=E; ind_edges[e1]<ind_edges[e2]], Bin)
-    # end
-
-    # if !isnothing(max_colors)
-    #     colors = 1:(binomial(n,2)-1)
-    #     @variable(m, x[E, colors], Bin) 
-    #     @variable(m, 0<=z[colors]<=1)
-    #     @variable(m, w[e1=E, e2=E; ind_edges[e1]<ind_edges[e2]], Bin)
-    # end
 
     # x represents the 2 possible colors of an edge: 0 or 1
     @variable(m, x[E], Bin) 
 
-    # @objective(m, Min, 1)
-
-    # Transitivity
-    # for e1 in E
-    #     for e2 in E
-    #         if ind_edges[e1]<ind_edges[e2]
-    #             for e3 in E
-    #                 if ind_edges[e2]<ind_edges[e3]
-    #                     @constraint(m, y[e2,e3] <= y[e1,e2] + y[e1,e3])
-    #                     @constraint(m, y[e2,e3] >= y[e1,e2] - y[e1,e3])
-    #                     @constraint(m, y[e2,e3] >= y[e1,e3] - y[e1,e2])
-    #                 end
-    #             end
-    #         end
-    #     end
-    # end
-
-    #Less than max_colors colors
-    # if !isnothing(max_colors)
-    #     for e in E
-    #         @constraint(m, sum(x[e,c] for c in colors) == 1)
-    #     end
-    #     # Difference variables
-    #     for a in E
-    #         for b in E
-    #             if ind_edges[a]<ind_edges[b]
-    #                 for c in colors
-    #                     @constraint(m, y[a,b] >= x[a,c] - x[b,c])
-    #                     @constraint(m, y[a,b] >= x[b,c] - x[a,c])
-    #                 end
-    #                 # Forcing x[a,c] and x[b,c] to be different for some c if y[a,b] = 1
-    #                 @constraint(m, sum(c*(x[a,c]-x[b,c]) for c in colors) + (max_colors + 1)*w[a,b] >= y[a,b])
-    #                 @constraint(m, sum(-c*(x[a,c]-x[b,c]) for c in colors) + (max_colors + 1)*(1-w[a,b]) >= y[a,b])
-    #             end
-    #         end
-    #     end
-    #     # Colors used
-    #     for c in colors
-    #         @constraint(m, z[c] <= sum(x[e,c] for e in E))
-    #         for e in E
-    #             @constraint(m, z[c] >= x[e,c])
-    #         end
-    #     end
-
-    #     @constraint(m, sum(z[c] for c in colors) <= max_colors)
-    # end
-        
-
     for G_copy_edges in all_G_copies_edges
-
-        # G_copy_edges = all_G_copies[G_copy_vertices]
-        # @show G_copy_vertices
-        # @show G_copy_edges
-
         # No monochromatic G
         @constraint(m, sum(x[e] for e=G_copy_edges) >= 1)
         @constraint(m, sum(x[e] for e=G_copy_edges) <= ne(G) -1)
-        # No rainbow G
-        # if isnothing(max_colors) || max_colors >= ne(G)
-        #     @constraint(m, sum(sum(y[e1,e2] for e1=G_copy_edges if ind_edges[e1]<ind_edges[e2]) for e2=G_copy_edges) <= binomial(ne(G),2) - 1)
-        # end
-
-        # # No lexicographic G
-        # for u in G_copy_vertices
-        #     # edges_right_u = [Edge(u,v) for v in G_copy_vertices if v>u]
-        #     edges_right_u = [e for e in G_copy_edges if u==src(e)]
-
-        #     if length(edges_right_u) ≥ 2
-        #         # @show u 
-        #         # @show edges_right_u
-        #         @constraint(m, sum(sum(y[e1,e2] for e1=edges_right_u if ind_edges[e1]<ind_edges[e2]) for e2=G_copy_edges) >= 1)
-        #     end
-        # end
-
     end
 
+    ## Output
+    # Create necessary directories
     if !isdir(dir_prefix*"LPmodels")
         mkdir(dir_prefix*"LPmodels")
     end
@@ -218,20 +105,20 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
     end
 
     perm_string= join(string.(perm))
-
     path_name = graph_name*"_$(perm_string)_K$n"
 
-    file_model = "model_" * path_name * ".lp"
-    path_file=joinpath(dir_prefix*"LPmodels/", file_model)
-    path_image=joinpath(dir_prefix*"ordered_graphs/", graph_name*"_$(perm_string)")
-
+    # Is it really worth doing this for every instance?
+    # Write the LP to a file
+    path_file = joinpath(dir_prefix*"LPmodels/", "model_" * path_name * ".lp")
     open(path_file, "w") do f
         print(f, m)
     end
 
+    # Draw the forbidden graph in specified file?
+    path_image = joinpath(dir_prefix*"ordered_graphs/", graph_name*"_$(perm_string)")
     plot_graph_linear(G, path_image)
 
-    # print(m)
+    # Solve the LP
     println("Model Written \n Optimizing...")
 
     optimize!(m)
@@ -240,12 +127,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
     @show typeof(termination_status(m))
 
     if is_solved_and_feasible(m)
-        @show objective_value(m)
-        @show(value.(x))
-        # @show(value.(y))
-        # @show(value.(z))
-        
-        # A, feasible_colors, nb_c = color_from_difference(value.(y), E, ind_edges, n)
+        # Construct and display the adjacency matrix
         A = zeros(Int8, n, n)
         feasible_colors = []
         for e in E
@@ -259,6 +141,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         end
         @show A
 
+        ## Output
         if !isdir(dir_prefix*"feasible_graphs")
             mkdir(dir_prefix*"feasible_graphs")
         end
@@ -269,6 +152,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
 
         path_adj=joinpath(dir_prefix*"feasible_graphs/adjacency_matrices", path_name*".txt")
 
+        # Print the adjacency matrix
         open(path_adj, "w") do f
             for i=1:n
                 for j=1:n
@@ -278,6 +162,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
             end
         end
 
+        # Save the results
         if save
             if isfile(dir_prefix*"feasibleGraphsOrderedRN.jld2")
                 @load dir_prefix*"feasibleGraphsOrderedRN.jld2" results
@@ -292,20 +177,23 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
             mkdir(dir_prefix*"feasible_graphs/plots")
         end
 
-        draw(PDF(joinpath(dir_prefix*"feasible_graphs/plots", path_name*".pdf"), 16cm, 16cm), gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
-        draw(SVG(joinpath(dir_prefix*"feasible_graphs/plots", path_name*".svg"), 16cm, 16cm), gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors))
+        # Draw the Ramsey graph
+        plot_path = dir_prefix*"feasible_graphs/plots"
+        plot = gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors)
+        draw(PDF(joinpath(plot_path, path_name*".pdf"), 16cm, 16cm), plot)
+        draw(SVG(joinpath(plot_path, path_name*".svg"), 16cm, 16cm), plot)
     
-        println("\n K$n feasibly colored!\n")
+        println("\n K$n feasibly colored with no $graph_name with permutation $perm\n")
 
+        # Write the corresponding bound to the results file
         if !isnothing(results_file)
             ramBound = n+1
             open(results_file, "a") do f
-                println(f, "R($graph_name) >= $ramBound")
+                println(f, "R("*graph_name*"_$(perm_string)"*") >= $ramBound")
             end
         end
 
         feasible=true
-
         
     elseif termination_status(m) == TIME_LIMIT
         println("Time limit reached for K$n...")
@@ -317,7 +205,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         end
     else
         println("Unfeasible!!")
-        println("\n It is impossible to color K$n with no canonically colored $graph_name !")
+        println("\n It is impossible to color K$n with no monochrome $graph_name !")
         if !isnothing(results_file)
             open(results_file, "a") do f
                 println(f, "R($graph_name) <= $n")
@@ -328,13 +216,15 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
 end
 
 
-##
+## Determines if there exists an n-vertex Ordered Ramsey graph for G_\pi for each ordering G_\pi of G
+#  and each n in range_n.
 
 function bounds_all_permutations(G, name_graph, results_file, range_n, max_time=180, save=false)
 
     all_permutations = permutations(1:nv(G))
     ind_perm=1
     for perm in all_permutations
+        # We may assume perm[1] < perm[end] by reflection symmetry
         if perm[1]>perm[end]
             continue
         end
@@ -346,7 +236,7 @@ function bounds_all_permutations(G, name_graph, results_file, range_n, max_time=
             end
         end
         open(results_file, "a") do f
-            println(f, " ")
+           println(f, " ")
         end
         ind_perm+=1
     end
@@ -355,10 +245,8 @@ end
 
 function bounds_all_graphs_of_order_n(graphs, range_n, results_file, max_time=180, save=false)
 
-    ind_graph=1
     for (G, name_G) in graphs
         bounds_all_permutations(G, name_G, results_file, range_n, max_time, save)
-        ind_graph+=1
     end
 end
 
@@ -373,12 +261,13 @@ graphs3 = [(threeK1, "3K1"),
             (P2UK1, "P2UK1"),
             (P3, "P3"),
             (K3, "K3")]
-range_n=2:6
+range_n=5:6
 results_file = dir_prefix*"allBounds_3_vertices.txt"
 bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
 
 
 
+#=
 ## 4 vertices
 
 fourK1 = SimpleGraph(4)
@@ -518,6 +407,6 @@ perm = [1,2,3,4,5]
 # add_edge!(G,3,5)
 n =19
 colorblind_ordered_canonical_ordering(G, perm, n, name_G)
-
+=#
 
 
