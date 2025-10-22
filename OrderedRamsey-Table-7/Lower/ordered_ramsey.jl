@@ -4,14 +4,14 @@ using JuMP
 using Graphs
 using LinearAlgebra
 using Combinatorics
-using Colors
-using GraphPlot
+# using Colors
+# using GraphPlot
 using Compose
 # using GLPK
 using IterTools
-using Cairo, Fontconfig
+# using Cairo, Fontconfig
 using Gurobi
-using Plots
+# using Plots
 using JLD2
 
 
@@ -30,6 +30,7 @@ function permute_graph(G, perm)
 end
 
 
+"""
 ## Plotting the graph
 function plot_graph_linear(G, path_file=nothing) 
     n = nv(G)
@@ -37,8 +38,9 @@ function plot_graph_linear(G, path_file=nothing)
     y_positions = zeros(Int, n)  # All vertices are on a straight line (y=0)
     if !isnothing(path_file)
         if !isempty(edges(G))
-            draw(PDF(joinpath(path_file*".pdf"), 16cm, 16cm), gplot(G, x_positions, y_positions, nodelabel=1:n, nodesize=0.7, linetype="curve", outangle=-π/3))
-            draw(SVG(joinpath(path_file*".svg"), 16cm, 16cm), gplot(G, x_positions, y_positions, nodelabel=1:n, nodesize=0.7, linetype="curve", outangle=-π/3))
+            graph_plot = gplot(G, x_positions, y_positions, nodelabel=1:n, nodesize=0.7, linetype="curve", outangle=-π/3) 
+            draw(PDF(joinpath(path_file*".pdf"), 16cm, 16cm), graph_plot) 
+            draw(SVG(joinpath(path_file*".svg"), 16cm, 16cm), graph_plot) 
         else
             savefig(plot(x_positions, y_positions, marker=(:circle, 20)), joinpath(path_file*".pdf"))
             Plots.svg(plot(x_positions, y_positions, marker=(:circle, 20)), joinpath(path_file*".pdf"))
@@ -47,6 +49,7 @@ function plot_graph_linear(G, path_file=nothing)
         gplot(G, x_positions, y_positions, nodelabel=1:n, linetype="curve", outangle=-π/3)
     end
 end
+"""
 
 # Creates an edge with ends u and v
 function edge(u,v)
@@ -83,7 +86,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
 
     # Creating ILP
     m = Model(Gurobi.Optimizer)
-    set_optimizer_attribute(m, "TIME_LIMIT", max_time)
+    # set_optimizer_attribute(m, "TIME_LIMIT", max_time)
 
     # x represents the 2 possible colors of an edge: 0 or 1
     @variable(m, x[E], Bin) 
@@ -116,7 +119,7 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
 
     # Draw the forbidden graph in specified file?
     path_image = joinpath(dir_prefix*"ordered_graphs/", graph_name*"_$(perm_string)")
-    plot_graph_linear(G, path_image)
+    #plot_graph_linear(G, path_image)
 
     # Solve the LP
     println("Model Written \n Optimizing...")
@@ -133,11 +136,13 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         for e in E
             A[src(e),dst(e)] = value.(x)[e]
             A[dst(e),src(e)] = value.(x)[e]
+	   """
             if value.(x)[e] == 0
                 push!(feasible_colors, colorant"red")
             else
                 push!(feasible_colors, colorant"blue")
             end
+           """
         end
         @show A
 
@@ -178,10 +183,10 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         end
 
         # Draw the Ramsey graph
-        plot_path = dir_prefix*"feasible_graphs/plots"
-        plot = gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors)
-        draw(PDF(joinpath(plot_path, path_name*".pdf"), 16cm, 16cm), plot)
-        draw(SVG(joinpath(plot_path, path_name*".svg"), 16cm, 16cm), plot)
+        # plot_path = dir_prefix*"feasible_graphs/plots"
+        # graph_plot = gplot(Kn,  layout=circular_layout, nodelabel = V, edgestrokec=feasible_colors)
+        # draw(PDF(joinpath(plot_path, path_name*".pdf"), 16cm, 16cm), graph_plot)
+        # draw(SVG(joinpath(plot_path, path_name*".svg"), 16cm, 16cm), graph_plot)
     
         println("\n K$n feasibly colored with no $graph_name with permutation $perm\n")
 
@@ -205,10 +210,10 @@ function colorblind_ordered_canonical_ordering(G_init, perm, n, graph_name, max_
         end
     else
         println("Unfeasible!!")
-        println("\n It is impossible to color K$n with no monochrome $graph_name !")
+        println("\n It is impossible to color K$n with no monochrome $graph_name with permutation $perm !")
         if !isnothing(results_file)
             open(results_file, "a") do f
-                println(f, "R($graph_name) <= $n")
+                println(f, "R("*graph_name*"_$(perm_string)"*") <= $n")
             end
         end
     end
@@ -250,163 +255,157 @@ function bounds_all_graphs_of_order_n(graphs, range_n, results_file, max_time=18
     end
 end
 
-## 3 vertices
+num_verts = parse(Int,ARGS[1])
+println(" START RAMSEY BOUND SEARCH ")
+flush(stdout)
+if num_verts == 3
+    ## 3 vertices
+    threeK1 = SimpleGraph(3)
+    P2UK1 = SimpleGraph(3,1)
+    P3 = path_graph(3)
+    K3 = complete_graph(3)
+    graphs3 = [(threeK1, "3K1"),
+                (P2UK1, "P2UK1"),
+                (P3, "P3"),
+                (K3, "K3")]
+    range_n=5:6
+    results_file = dir_prefix*"allBounds_3_vertices.txt"
+    bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
+elseif num_verts == 4
+    ## 4 vertices
+    fourK1 = SimpleGraph(4)
+    P2U2K1 = SimpleGraph(4,1)
 
-threeK1 = SimpleGraph(3)
-P2UK1 = SimpleGraph(3,1)
-P3 = path_graph(3)
-K3 = complete_graph(3)
+    twoK2 = SimpleGraph(4)
+    add_edge!(twoK2, 1,2)
+    add_edge!(twoK2, 3,4)
 
-graphs3 = [(threeK1, "3K1"),
-            (P2UK1, "P2UK1"),
-            (P3, "P3"),
-            (K3, "K3")]
-range_n=5:6
-results_file = dir_prefix*"allBounds_3_vertices.txt"
-bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
+    P3UK1 = path_graph(3)
+    add_vertex!(P3UK1)
 
+    K3UK1 = cycle_graph(3)
+    add_vertex!(K3UK1)
 
+    P4 = path_graph(4)
 
-#=
-## 4 vertices
+    S4 = deepcopy(P3UK1)
+    add_edge!(S4, 2,4)
 
-fourK1 = SimpleGraph(4)
+    Paw4 = deepcopy(S4)
+    add_edge!(Paw4, 1,3)
 
-P2U2K1 = SimpleGraph(4,1)
+    C4 = cycle_graph(4)
 
-twoK2 = SimpleGraph(4)
-add_edge!(twoK2, 1,2)
-add_edge!(twoK2, 3,4)
+    diamond4 = cycle_graph(4)
+    add_edge!(diamond4, 1,3)
 
-P3UK1 = path_graph(3)
-add_vertex!(P3UK1)
+    K4 = complete_graph(4)
 
-K3UK1 = cycle_graph(3)
-add_vertex!(K3UK1)
+    graphs3 = [(fourK1, "4K1"),
+                (P2U2K1, "P2U2K1"),
+                (twoK2, "2K2"),
+                (P3UK1, "P3UK1"),
+                (K3UK1, "K3UK1"),
+                (P4, "P4"),
+                (S4, "S4"),
+                (Paw4, "Paw4"),
+                (C4, "C4"),
+                (diamond4, "diamond4"),
+                (K4, "K4")]
 
-P4 = path_graph(4)
+    graphs3 = [(Paw4, "Paw4")]
 
-S4 = deepcopy(P3UK1)
-add_edge!(S4, 2,4)
+    range_n=5:11
+    results_file = dir_prefix*"allBounds_4_vertices.txt"
+    max_time = 60*15
+    bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
+    ## K4
 
-Paw4 = deepcopy(S4)
-add_edge!(Paw4, 1,3)
+    K4 = complete_graph(4)
+    perm = [1,2,3,4,5]
+    max_time = 60*30
+    n=18
+    results_file = dir_prefix*"allBounds_4_vertices.txt"
+    colorblind_ordered_canonical_ordering(K4, perm, n, "K4", max_time, false, results_file )
+elseif num_verts == 5
 
-C4 = cycle_graph(4)
+    # Path on five vertices
+    P = path_graph(5)
+    # Orderings of the path
+    permP1 = [5,3,1,2,4] # Row 1
+    permP2 = [5,4,2,1,3] # Row 2
+    permP3 = [5,2,1,3,4] # Row 3
+    # Solve
+    println("Row 1\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(P, permP1, 15, "row_1")
+    flush(stdout)
 
-diamond4 = cycle_graph(4)
-add_edge!(diamond4, 1,3)
+    println("Row 2\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(P, permP2, 15, "row_2")
+    flush(stdout)
 
-K4 = complete_graph(4)
+    println("Row 3\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(P, permP3, 14, "row_3")
+    flush(stdout)
+    
 
-# graphs3 = [(fourK1, "4K1"),
-#             (P2U2K1, "P2U2K1"),
-#             (twoK2, "2K2"),
-#             (P3UK1, "P3UK1"),
-#             (K3UK1, "K3UK1"),
-#             (P4, "P4"),
-#             (S4, "S4"),
-#             (Paw4, "Paw4"),
-#             (C4, "C4"),
-#             (diamond4, "diamond4"),
-#             (K4, "K4)"]
+    # Pentagon
+    C = cycle_graph(5)
+    # Orderings of the pentagon
+    permC1 = [1,3,4,2,5] # Row 4
+    permC2 = [1,3,5,4,2] # Row 5
+    # Solve
+    println("Row 4\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(C, permC1, 13, "row_4")
+    flush(stdout)
+    println("Row 5\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(C, permC2, 18, "row_5")
+    flush(stdout)
+    
+    # House Graph
+    H = cycle_graph(5)
+    add_edge!(H,2,5)
+    permH = [1,2,5,4,3] # Row 6
+    # Solve
+    println("Row 6\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(H, permH, 23, "row_6")
+    flush(stdout)
 
-graphs3 = [(Paw4, "Paw4")]
+    # Star with four points
+    S = complete_bipartite_graph(1,4)
+    # Orderings of the star
+    permS1 = [2,1,3,4,5] # Row 7
+    permS2 = [3,1,2,4,5] # Row 8
+    # Solve 
+    println("Row 7\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(S, permS1, 12, "row_7")
+    flush(stdout)
+    println("Row 8\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(S, permS1, 14, "row_8")
+    flush(stdout)
 
-range_n=5:11
-results_file = dir_prefix*"allBounds_4_vertices.txt"
-max_time = 60*15
-bounds_all_graphs_of_order_n(graphs3,range_n, results_file)
-
-
-##
-graphsP5 = [(path_graph(5), "P5")]
-range_n =8:30
-results_file = dir_prefix*"allBounds_P5.txt"
-max_time = 60*30
-bounds_all_graphs_of_order_n(graphsP5, range_n, results_file, max_time)
-
-
-## K4
-
-K4 = complete_graph(4)
-perm = [1,2,3,4,5]
-max_time = 60*30
-n=18
-results_file = dir_prefix*"allBounds_4_vertices.txt"
-colorblind_ordered_canonical_ordering(K4, perm, n, "K4", max_time, false, results_file )
-
-
-
-#
-# GOrd = "K3,3"
-# GRain = "C4"
-# G = complete_graph(3)
-
-## Double cycle 5
-G = path_graph(5)
-add_edge!(G,1,3)
-add_edge!(G,2,5)
-# G = cycle_graph(5)
-name_G = "double_cycle_5"
-perm = [1,2,3,4,5]
-# add_vertex!(G)
-# add_edge!(G,3,5)
-n =24
-colorblind_ordered_canonical_ordering(G, perm, n, name_G)
-
-## Broom5
-G = path_graph(3)
-add_vertices!(G,2)
-add_edge!(G,2,4)
-add_edge!(G,2,5)
-# G = cycle_graph(5)
-name_G = "broom_5"
-perm = [1,2,3,4,5]
-# add_vertex!(G)
-# add_edge!(G,3,5)
-n =12
-colorblind_ordered_canonical_ordering(G, perm, n, name_G)
-
-## Cross5
-G = SimpleGraph(5)
-add_edge!(G,1,3)
-add_edge!(G,2,3)
-add_edge!(G,3,4)
-add_edge!(G,3,5)
-name_G = "cross_5"
-perm = [1,2,3,4,5]
-# add_vertex!(G)
-# add_edge!(G,3,5)
-n =114
-colorblind_ordered_canonical_ordering(G, perm, n, name_G)
-
-## tree5_1
-G = SimpleGraph(5)
-add_edge!(G,1,2)
-add_edge!(G,1,3)
-add_edge!(G,1,4)
-add_edge!(G,4,5)
-perm = [1,2,3,4,5]
-# add_vertex!(G)
-# add_edge!(G,3,5)
-n =19
-colorblind_ordered_canonical_ordering(G, perm, n, name_G)
-
-
-## tree5_1
-G = SimpleGraph(5)
-add_edge!(G,1,2)
-add_edge!(G,1,3)
-add_edge!(G,1,4)
-add_edge!(G,3,5)
-# G = cycle_graph(5)
-name_G = "tree_5_2"
-perm = [1,2,3,4,5]
-# add_vertex!(G)
-# add_edge!(G,3,5)
-n =19
-colorblind_ordered_canonical_ordering(G, perm, n, name_G)
-=#
-
-
+    # Broom with two bristles and five vertices
+    B = path_graph(4)
+    add_vertices!(B,1)
+    add_edge!(B,3,5)
+    # Orderings of the broom
+    permB1 = [5,4,1,2,3] # Row 9
+    permB2 = [5,3,1,2,4] # Row 10
+    # Solve
+    println("Row 9\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(B, permB1, 12, "row_9")
+    flush(stdout)
+    println("Row 10\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(B, permB1, 11, "row_10")
+    flush(stdout)
+end

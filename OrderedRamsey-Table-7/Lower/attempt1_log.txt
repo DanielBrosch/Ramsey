@@ -1,0 +1,385 @@
+ START RAMSEY BOUND SEARCH 
+Row 1
+
+Set parameter TokenServer to value "hpc-license.its.iastate.edu"
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (linux64 - "Red Hat Enterprise Linux 9.4 (Plow)")
+
+CPU model: Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 36 physical cores, 72 logical processors, using up to 32 threads
+
+Optimize a model with 6006 rows, 105 columns and 24024 nonzeros
+Model fingerprint: 0x836be1b1
+Variable types: 0 continuous, 105 integer (105 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Presolve removed 2 rows and 7 columns
+Presolve time: 0.04s
+Presolved: 6004 rows, 98 columns, 24016 nonzeros
+Variable types: 0 continuous, 98 integer (98 binary)
+
+Root relaxation: objective 0.000000e+00, 181 iterations, 0.03 seconds (0.02 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   21          -    0.00000      -     -    0s
+     0     0    0.00000    0   23          -    0.00000      -     -    0s
+     0     0    0.00000    0   17          -    0.00000      -     -    0s
+     0     0    0.00000    0   19          -    0.00000      -     -    0s
+     0     0    0.00000    0   19          -    0.00000      -     -    1s
+     0     0    0.00000    0   21          -    0.00000      -     -    1s
+     0     0    0.00000    0   25          -    0.00000      -     -    1s
+     0     0    0.00000    0   14          -    0.00000      -     -    1s
+     0     0    0.00000    0   16          -    0.00000      -     -    1s
+     0     0    0.00000    0   19          -    0.00000      -     -    2s
+     0     0    0.00000    0   18          -    0.00000      -     -    2s
+     0     0    0.00000    0   20          -    0.00000      -     -    2s
+     0     0    0.00000    0   20          -    0.00000      -     -    2s
+     0     2    0.00000    0   18          -    0.00000      -     -    4s
+     4     8    0.00000    2   28          -    0.00000      -  80.8    5s
+   972   196    0.00000    9   31          -    0.00000      -  21.1   10s
+
+Cutting planes:
+  Gomory: 2
+  MIR: 4
+  Inf proof: 8
+  Zero half: 26
+
+Explored 2705 nodes (48296 simplex iterations) in 14.46 seconds (1.94 work units)
+Thread count was 32 (of 72 available processors)
+
+Solution count 0
+
+Model is infeasible
+Best objective -, best bound -, gap -
+
+User-callback calls 6520, time in user-callback 0.01 sec
+Finding a coloring of K15 with no canonically colored row_1 with permutation [5, 3, 1, 2, 4]
+
+
+Model Written 
+ Optimizing...
+termination_status(m) = MathOptInterface.INFEASIBLE
+typeof(termination_status(m)) = MathOptInterface.TerminationStatusCode
+Unfeasible!!
+
+ It is impossible to color K15 with no monochrome row_1 with permutation [5, 3, 1, 2, 4] !
+Row 2
+
+Set parameter TokenServer to value "hpc-license.its.iastate.edu"
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (linux64 - "Red Hat Enterprise Linux 9.4 (Plow)")
+
+CPU model: Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 36 physical cores, 72 logical processors, using up to 32 threads
+
+Optimize a model with 6006 rows, 105 columns and 24024 nonzeros
+Model fingerprint: 0xa4d9c7c1
+Variable types: 0 continuous, 105 integer (105 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Presolve removed 2 rows and 5 columns
+Presolve time: 0.03s
+Presolved: 6004 rows, 100 columns, 24016 nonzeros
+Variable types: 0 continuous, 100 integer (100 binary)
+
+Root relaxation: objective 0.000000e+00, 387 iterations, 0.07 seconds (0.05 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   38          -    0.00000      -     -    0s
+H    0     0                       0.0000000    0.00000  0.00%     -    0s
+
+Cutting planes:
+  Gomory: 1
+  MIR: 12
+  Zero half: 9
+
+Explored 1 nodes (1125 simplex iterations) in 0.53 seconds (0.33 work units)
+Thread count was 32 (of 72 available processors)
+
+Solution count 1: 0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+User-callback calls 351, time in user-callback 0.00 sec
+Finding a coloring of K15 with no canonically colored row_2 with permutation [5, 4, 2, 1, 3]
+
+
+Model Written 
+ Optimizing...
+termination_status(m) = MathOptInterface.OPTIMAL
+typeof(termination_status(m)) = MathOptInterface.TerminationStatusCode
+A = Int8[0 1 0 0 0 0 1 1 1 1 1 1 1 0 0; 1 0 0 0 0 1 1 0 0 0 0 1 1 1 0; 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0; 0 0 0 0 0 1 1 1 1 1 1 1 1 1 0; 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1; 0 1 1 1 1 0 1 0 0 0 0 1 1 1 1; 1 1 1 1 1 1 0 1 0 0 0 1 1 1 1; 1 0 1 1 1 0 1 0 1 0 0 1 1 1 1; 1 0 1 1 1 0 0 1 0 1 0 1 1 1 1; 1 0 1 1 1 0 0 0 1 0 1 1 1 1 1; 1 0 1 1 1 0 0 0 0 1 0 1 1 1 1; 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0; 1 1 1 1 1 1 1 1 1 1 1 0 0 0 0; 0 1 1 1 1 1 1 1 1 1 1 0 0 0 0; 0 0 0 0 1 1 1 1 1 1 1 0 0 0 0]
+
+ K15 feasibly colored with no row_2 with permutation [5, 4, 2, 1, 3]
+
+Row 3
+
+Set parameter TokenServer to value "hpc-license.its.iastate.edu"
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (linux64 - "Red Hat Enterprise Linux 9.4 (Plow)")
+
+CPU model: Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 36 physical cores, 72 logical processors, using up to 32 threads
+
+Optimize a model with 4004 rows, 91 columns and 16016 nonzeros
+Model fingerprint: 0x82009472
+Variable types: 0 continuous, 91 integer (91 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 3e+00]
+Presolve removed 0 rows and 4 columns
+Presolve time: 0.01s
+Presolved: 4004 rows, 87 columns, 16016 nonzeros
+Variable types: 0 continuous, 87 integer (87 binary)
+
+Root relaxation: objective 0.000000e+00, 158 iterations, 0.01 seconds (0.01 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+H    0     0                       0.0000000    0.00000  0.00%     -    0s
+     0     0    0.00000    0   39    0.00000    0.00000  0.00%     -    0s
+
+Explored 1 nodes (158 simplex iterations) in 0.04 seconds (0.04 work units)
+Thread count was 32 (of 72 available processors)
+
+Solution count 1: 0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+User-callback calls 165, time in user-callback 0.00 sec
+Finding a coloring of K14 with no canonically colored row_3 with permutation [5, 2, 1, 3, 4]
+
+
+Model Written 
+ Optimizing...
+termination_status(m) = MathOptInterface.OPTIMAL
+typeof(termination_status(m)) = MathOptInterface.TerminationStatusCode
+A = Int8[0 1 0 0 0 0 1 1 1 1 1 1 0 0; 1 0 0 0 0 1 1 1 1 0 0 0 0 0; 0 0 0 0 0 1 1 1 1 1 1 1 1 1; 0 0 0 0 0 1 1 1 1 1 1 1 1 1; 0 0 0 0 0 1 1 1 1 1 1 1 1 1; 0 1 1 1 1 0 1 1 1 0 0 0 0 0; 1 1 1 1 1 1 0 0 1 1 0 0 0 0; 1 1 1 1 1 1 0 0 0 1 0 0 0 0; 1 1 1 1 1 1 1 0 0 0 0 0 0 0; 1 0 1 1 1 0 1 1 0 0 1 1 0 0; 1 0 1 1 1 0 0 0 0 1 0 1 1 0; 1 0 1 1 1 0 0 0 0 1 1 0 1 0; 0 0 1 1 1 0 0 0 0 0 1 1 0 0; 0 0 1 1 1 0 0 0 0 0 0 0 0 0]
+
+ K14 feasibly colored with no row_3 with permutation [5, 2, 1, 3, 4]
+
+Row 4
+
+Set parameter TokenServer to value "hpc-license.its.iastate.edu"
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (linux64 - "Red Hat Enterprise Linux 9.4 (Plow)")
+
+CPU model: Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 36 physical cores, 72 logical processors, using up to 32 threads
+
+Optimize a model with 2574 rows, 78 columns and 12870 nonzeros
+Model fingerprint: 0xf509db16
+Variable types: 0 continuous, 78 integer (78 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 4e+00]
+Presolve removed 0 rows and 4 columns
+Presolve time: 0.01s
+Presolved: 2574 rows, 74 columns, 12870 nonzeros
+Variable types: 0 continuous, 74 integer (74 binary)
+
+Root relaxation: objective 0.000000e+00, 205 iterations, 0.02 seconds (0.02 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0    4          -    0.00000      -     -    0s
+H    0     0                       0.0000000    0.00000  0.00%     -    0s
+
+Cutting planes:
+  Gomory: 1
+  Zero half: 2
+
+Explored 1 nodes (615 simplex iterations) in 0.15 seconds (0.11 work units)
+Thread count was 32 (of 72 available processors)
+
+Solution count 1: 0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+User-callback calls 185, time in user-callback 0.00 sec
+Finding a coloring of K13 with no canonically colored row_4 with permutation [1, 3, 4, 2, 5]
+
+
+Model Written 
+ Optimizing...
+termination_status(m) = MathOptInterface.OPTIMAL
+typeof(termination_status(m)) = MathOptInterface.TerminationStatusCode
+A = Int8[0 0 1 1 1 0 0 0 0 0 1 1 1; 0 0 0 1 1 1 0 1 1 0 0 0 0; 1 0 0 0 1 1 0 0 1 0 0 0 0; 1 1 0 0 0 0 0 0 1 1 0 0 1; 1 1 1 0 0 0 0 0 0 0 1 1 0; 0 1 1 0 0 0 1 1 1 0 0 0 1; 0 0 0 0 0 1 0 1 1 1 1 1 0; 0 1 0 0 0 1 1 0 1 1 1 0 0; 0 1 1 1 0 1 1 1 0 0 0 1 0; 0 0 0 1 0 0 1 1 0 0 1 1 0; 1 0 0 0 1 0 1 1 0 1 0 1 0; 1 0 0 0 1 0 1 0 1 1 1 0 0; 1 0 0 1 0 1 0 0 0 0 0 0 0]
+
+ K13 feasibly colored with no row_4 with permutation [1, 3, 4, 2, 5]
+
+Row 5
+
+Set parameter TokenServer to value "hpc-license.its.iastate.edu"
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (linux64 - "Red Hat Enterprise Linux 9.4 (Plow)")
+
+CPU model: Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 36 physical cores, 72 logical processors, using up to 32 threads
+
+Optimize a model with 17136 rows, 153 columns and 85680 nonzeros
+Model fingerprint: 0xdbd754d6
+Variable types: 0 continuous, 153 integer (153 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 4e+00]
+Presolve removed 0 rows and 3 columns
+Presolve time: 0.11s
+Presolved: 17136 rows, 150 columns, 85680 nonzeros
+Variable types: 0 continuous, 150 integer (150 binary)
+
+Root relaxation: objective 0.000000e+00, 479 iterations, 0.20 seconds (0.13 work units)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0    6          -    0.00000      -     -    1s
+     0     0    0.00000    0   25          -    0.00000      -     -    1s
+H    0     0                       0.0000000    0.00000  0.00%     -    2s
+     0     0    0.00000    0   22    0.00000    0.00000  0.00%     -    2s
+
+Cutting planes:
+  Gomory: 2
+  MIR: 3
+  Zero half: 12
+
+Explored 1 nodes (2224 simplex iterations) in 2.33 seconds (1.50 work units)
+Thread count was 32 (of 72 available processors)
+
+Solution count 1: 0 
+
+Optimal solution found (tolerance 1.00e-04)
+Best objective 0.000000000000e+00, best bound 0.000000000000e+00, gap 0.0000%
+
+User-callback calls 420, time in user-callback 0.00 sec
+Finding a coloring of K18 with no canonically colored row_5 with permutation [1, 3, 5, 4, 2]
+
+
+Model Written 
+ Optimizing...
+termination_status(m) = MathOptInterface.OPTIMAL
+typeof(termination_status(m)) = MathOptInterface.TerminationStatusCode
+A = Int8[0 1 1 0 0 0 0 0 0 0 1 1 1 1 0 0 0 0; 1 0 1 0 0 0 0 0 0 0 1 1 1 1 1 0 0 0; 1 1 0 0 0 0 0 0 0 1 1 1 0 0 0 0 1 1; 0 0 0 0 0 1 0 0 0 1 1 1 1 1 1 0 0 0; 0 0 0 0 0 0 0 0 1 1 1 1 1 1 1 1 1 1; 0 0 0 1 0 0 0 0 1 1 1 1 1 1 1 1 1 1; 0 0 0 0 0 0 0 1 0 1 1 1 1 1 1 0 1 1; 0 0 0 0 0 0 1 0 1 1 1 1 1 1 1 1 1 1; 0 0 0 0 1 1 0 1 0 1 1 1 1 1 1 1 0 1; 0 0 1 1 1 1 1 1 1 0 1 1 0 0 0 0 0 0; 1 1 1 1 1 1 1 1 1 1 0 0 1 1 0 0 0 0; 1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0; 1 1 0 1 1 1 1 1 1 0 1 0 0 0 1 1 0 0; 1 1 0 1 1 1 1 1 1 0 1 0 0 0 0 0 0 0; 0 1 0 1 1 1 1 1 1 0 0 0 1 0 0 0 0 0; 0 0 0 0 1 1 0 1 1 0 0 0 1 0 0 0 1 1; 0 0 1 0 1 1 1 1 0 0 0 0 0 0 0 1 0 1; 0 0 1 0 1 1 1 1 1 0 0 0 0 0 0 1 1 0]
+
+ K18 feasibly colored with no row_5 with permutation [1, 3, 5, 4, 2]
+
+Row 6
+
+Set parameter TokenServer to value "hpc-license.its.iastate.edu"
+Gurobi Optimizer version 11.0.3 build v11.0.3rc0 (linux64 - "Red Hat Enterprise Linux 9.4 (Plow)")
+
+CPU model: Intel(R) Xeon(R) Gold 6240 CPU @ 2.60GHz, instruction set [SSE2|AVX|AVX2|AVX512]
+Thread count: 36 physical cores, 72 logical processors, using up to 32 threads
+
+Optimize a model with 67298 rows, 253 columns and 403788 nonzeros
+Model fingerprint: 0x1087083f
+Variable types: 0 continuous, 253 integer (253 binary)
+Coefficient statistics:
+  Matrix range     [1e+00, 1e+00]
+  Objective range  [0e+00, 0e+00]
+  Bounds range     [0e+00, 0e+00]
+  RHS range        [1e+00, 5e+00]
+Presolve removed 0 rows and 2 columns
+Presolve time: 0.87s
+Presolved: 67298 rows, 251 columns, 403788 nonzeros
+Variable types: 0 continuous, 251 integer (251 binary)
+Root relaxation presolved: 251 rows, 67549 columns, 404039 nonzeros
+
+
+Starting sifting (using dual simplex for sub-problems)...
+
+    Iter     Pivots    Primal Obj      Dual Obj        Time
+       0        389    -infinity     -0.0000000e+00      2s
+
+Sifting complete
+
+
+Root relaxation: objective 0.000000e+00, 394 iterations, 0.53 seconds (0.44 work units)
+Total elapsed time = 9.24s (DegenMoves)
+
+    Nodes    |    Current Node    |     Objective Bounds      |     Work
+ Expl Unexpl |  Obj  Depth IntInf | Incumbent    BestBd   Gap | It/Node Time
+
+     0     0    0.00000    0   51          -    0.00000      -     -    9s
+     0     0    0.00000    0   61          -    0.00000      -     -   11s
+     0     0    0.00000    0   57          -    0.00000      -     -   21s
+     0     0    0.00000    0   44          -    0.00000      -     -   27s
+     0     0    0.00000    0   44          -    0.00000      -     -   27s
+     0     0    0.00000    0   49          -    0.00000      -     -   34s
+     0     0    0.00000    0   48          -    0.00000      -     -   34s
+     0     0    0.00000    0   46          -    0.00000      -     -   39s
+     0     0    0.00000    0   44          -    0.00000      -     -   39s
+     0     0    0.00000    0   82          -    0.00000      -     -   48s
+     0     0    0.00000    0   77          -    0.00000      -     -   48s
+     0     0    0.00000    0   39          -    0.00000      -     -   53s
+     0     0    0.00000    0   47          -    0.00000      -     -   53s
+     0     0    0.00000    0   44          -    0.00000      -     -   61s
+     0     0    0.00000    0   44          -    0.00000      -     -   68s
+     0     2    0.00000    0   44          -    0.00000      -     -  108s
+     1     4    0.00000    1   43          -    0.00000      -  3340  113s
+     3     8    0.00000    2   45          -    0.00000      -  1143  118s
+     7    16    0.00000    3   45          -    0.00000      -   518  122s
+    15    32    0.00000    4   52          -    0.00000      -   269  126s
+    31    64    0.00000    5   67          -    0.00000      -   159  134s
+    63    96    0.00000    6   66          -    0.00000      -   111  143s
+    95   128    0.00000    6   61          -    0.00000      -   112  148s
+   127   160    0.00000    7   57          -    0.00000      -  97.2  155s
+   159   192    0.00000    7   50          -    0.00000      -  88.8  160s
+   191   224    0.00000    8   56          -    0.00000      -  84.6  167s
+   223   285    0.00000    7   49          -    0.00000      -  81.7  174s
+   284   425    0.00000    9   50          -    0.00000      -  82.9  188s
+   424   701    0.00000   10   60          -    0.00000      -  74.3  214s
+   700  1171    0.00000   16   51          -    0.00000      -  70.2  260s
+  1170  1964    0.00000   23   78          -    0.00000      -  77.5  368s
+  2104  3579    0.00000   12   65          -    0.00000      -  76.8  550s
+  4188  5037    0.00000   16   64          -    0.00000      -  70.9  727s
+  6171  5038    0.00000   36   44          -    0.00000      -  70.1  748s
+  6173  5039    0.00000   16  174          -    0.00000      -  70.1  761s
+  6174  5040    0.00000    8  162          -    0.00000      -  70.1  792s
+  6175  5041    0.00000   19  104          -    0.00000      -  70.1  807s
+  6176  5041    0.00000   19  124          -    0.00000      -  70.1  823s
+  6177  5042    0.00000   28  116          -    0.00000      -  70.1  835s
+  6179  5043    0.00000   17  108          -    0.00000      -  70.0  847s
+  6180  5044    0.00000   34  106          -    0.00000      -  70.0  851s
+  6181  5045    0.00000   22   98          -    0.00000      -  70.0  871s
+  6183  5046    0.00000    8   90          -    0.00000      -  70.0  888s
+  6184  5047    0.00000   26   96          -    0.00000      -  70.0  891s
+  6185  5047    0.00000   19  108          -    0.00000      -  70.0  905s
+  6186  5048    0.00000   22  100          -    0.00000      -  70.0  917s
+  6187  5049    0.00000   29   94          -    0.00000      -  70.0  921s
+  6188  5049    0.00000   18   90          -    0.00000      -  69.9  941s
+  6189  5050    0.00000   21   90          -    0.00000      -  69.9  945s
+  6190  5051    0.00000   14   90          -    0.00000      -  69.9  961s
+  6191  5054    0.00000   13  104          -    0.00000      -   3.4  988s
+  6193  5058    0.00000   14  110          -    0.00000      -   3.4  998s
+  6197  5064    0.00000   15  116          -    0.00000      -   3.4 1009s
+  6205  5078    0.00000   16  136          -    0.00000      -   3.5 1020s
+  6221  5104    0.00000   17  110          -    0.00000      -   3.7 1037s
+  6253  5126    0.00000   18  120          -    0.00000      -   4.0 1046s
+  6285  5147    0.00000   18  106          -    0.00000      -   4.2 1058s
+  6317  5168    0.00000   19  116          -    0.00000      -   4.4 1071s
+  6349  5190    0.00000   19  138          -    0.00000      -   4.8 1085s
+  6381  5211    0.00000   20  122          -    0.00000      -   5.1 1101s
+  6413  5232    0.00000   20  140          -    0.00000      -   5.3 1115s
+  6445  5254    0.00000   21  160          -    0.00000      -   5.6 1129s
+  6477  5322    0.00000   19  118          -    0.00000      -   5.8 1162s
+  6556  5454    0.00000   23  136          -    0.00000      -   7.1 1209s
+  6714  5685    0.00000   25  140          -    0.00000      -   8.3 1306s
+  6998  6110    0.00000   31  152          -    0.00000      -  10.5 1500s
+  7535  6856 infeasible   48               -    0.00000      -  23.2 1913s
