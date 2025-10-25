@@ -489,7 +489,7 @@ name_G = "cross_5"
 perm = [1,2,3,4,5]
 # add_vertex!(G)
 # add_edge!(G,3,5)
-n =114
+n =14
 colorblind_ordered_canonical_ordering(G, perm, n, name_G)
 
 ## tree5_1

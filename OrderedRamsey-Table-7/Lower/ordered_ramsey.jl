@@ -30,7 +30,6 @@ function permute_graph(G, perm)
 end
 
 
-"""
 ## Plotting the graph
 function plot_graph_linear(G, path_file=nothing) 
     n = nv(G)
@@ -49,7 +48,6 @@ function plot_graph_linear(G, path_file=nothing)
         gplot(G, x_positions, y_positions, nodelabel=1:n, linetype="curve", outangle=-π/3)
     end
 end
-"""
 
 # Creates an edge with ends u and v
 function edge(u,v)
@@ -338,10 +336,9 @@ elseif num_verts == 5
     # Solve
     println("Row 1\n")
     flush(stdout)
- #   colorblind_ordered_canonical_ordering(P, permP1, 13, "row_1")
+    colorblind_ordered_canonical_ordering(P, permP1, 13, "row_1")
     flush(stdout)
 
-#=
     println("Row 2\n")
     flush(stdout)
     colorblind_ordered_canonical_ordering(P, permP2, 15, "row_2")
@@ -351,7 +348,6 @@ elseif num_verts == 5
     flush(stdout)
     colorblind_ordered_canonical_ordering(P, permP3, 14, "row_3")
     flush(stdout)
- =#   
 
     # Pentagon
     C = cycle_graph(5)
@@ -359,7 +355,6 @@ elseif num_verts == 5
     permC1 = [1,3,4,2,5] # Row 4
     permC2 = [1,3,5,4,2] # Row 5
     # Solve
-#=
     println("Row 4\n")
     flush(stdout)
     colorblind_ordered_canonical_ordering(C, permC1, 13, "row_4")
@@ -368,7 +363,6 @@ elseif num_verts == 5
     flush(stdout)
     colorblind_ordered_canonical_ordering(C, permC2, 18, "row_5")
     flush(stdout)
-=#
     
     # House Graph
     H = cycle_graph(5)
@@ -377,7 +371,7 @@ elseif num_verts == 5
     # Solve
     println("Row 6\n")
     flush(stdout)
- #   colorblind_ordered_canonical_ordering(H, permH, 23, "row_6")
+    colorblind_ordered_canonical_ordering(H, permH, 23, "row_6")
     flush(stdout)
 
     # Star with four points
@@ -386,15 +380,14 @@ elseif num_verts == 5
     permS1 = [2,1,3,4,5] # Row 7
     permS2 = [3,1,2,4,5] # Row 8
     # Solve 
- #   println("Row 7\n")
- #   flush(stdout)
- #   colorblind_ordered_canonical_ordering(S, permS1, 12, "row_7")
- #   flush(stdout)
+    println("Row 7\n")
+    flush(stdout)
+    colorblind_ordered_canonical_ordering(S, permS1, 12, "row_7")
+    flush(stdout)
     println("Row 8\n")
     flush(stdout)
-    colorblind_ordered_canonical_ordering(S, permS1, 12, "row_8")
+    colorblind_ordered_canonical_ordering(S, permS2, 14, "row_8")
     flush(stdout)
-#=
     # Broom with two bristles and five vertices
     B = path_graph(4)
     add_vertices!(B,1)
@@ -411,5 +404,4 @@ elseif num_verts == 5
     flush(stdout)
     colorblind_ordered_canonical_ordering(B, permB1, 11, "row_10")
     flush(stdout)
-=#
 end
