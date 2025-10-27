@@ -1,4 +1,4 @@
 CFLAGS= -DG_COLORED_EDGES=2
-SRC=../LidickyOrdered/flag.cpp
+SRC=flag.cpp
 
--include ../LidickyOrdered/Makefile.include
+-include Makefile.include

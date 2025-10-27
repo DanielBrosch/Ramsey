@@ -26,6 +26,10 @@ ifeq ($(UNAME_S),Darwin)
     ifneq (, $(shell which g++-14))
       CC := g++-14  -arch arm64 
     endif
+    ifneq (, $(shell which g++-15))
+      CC := g++-15  -arch arm64 
+    endif
+
 endif
 
 all: $(target)
@@ -49,16 +53,5 @@ clean:
 cleann:
 	rm -f SDP_*  *labeled.txt *unlabeled_symmetries.txt  *sdp_products.txt CSDP_checkpoint_* *log *aux  *__size*_type*.txt
 	rm -rf cache
-
-
-old:
-	g++ $(CFLAGS) ../flag-old.cpp -Wall -O3 -std=c++11 -o b.out
-
-
-## For different clusters
-
-condo:
-	module load intel
-	icpc -D_USING_OMP_ -std=c++11 -ipo -O3  -no-prec-div  -fp-model fast=2  -xHost -qopenmp $(CFLAGS) $(SRC)
 
 
